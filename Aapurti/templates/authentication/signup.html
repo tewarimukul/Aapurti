@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.108.0">
+  <title>Aapurti - Sign up</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/headers/">
+  <link href="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/apple-touch-icon.png"
+    sizes="180x180">
+  <link rel="icon" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32"
+    type="image/png">
+  <link rel="icon" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16"
+    type="image/png">
+  <link rel="manifest" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/manifest.json">
+  <link rel="mask-icon" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/safari-pinned-tab.svg"
+    color="#712cf9">
+  <link rel="icon" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/favicon.ico">
+  <meta name="theme-color" content="#712cf9">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'sign-up.css' %}" rel="stylesheet">
+</head>
+
+<body class="container-body">
+
+  <main class="form-signin w-100 m-auto">
+    <div class="header">
+      <a href="{% url 'home' %}" class="logo">Aapurti Portal</a>
+      <div class="header-right">
+        <a class="active" href="#home">Home</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+      </div>
+    </div>
+    <div class="b-example-divider"></div>
+
+    <form action="/signup" method="post">
+      {% csrf_token %}
+      <img class="banner-size" src="{% static 'banner' %}" alt="Aapurti-Portal">
+      <div class="b-example-divider-2"></div>
+      <div id="signin-border">
+        <h1 class="h3 mb-3 fw-normal">Create Account</h1>
+        <br>
+        {% for message in messages %}
+        <div class="msg" role="alert">
+          <strong style="color:white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+              class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+              <path
+                d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+            </svg>{{ message }}</strong>
+        </div>
+        {% endfor %}
+        <div id="pass-req">
+          <p id="pass-head">Password Requirement</p>
+          <ul style="float: left;">
+            <li>An uppercase character</li>
+            <li>A special character</li>
+            <li>A numeric character</li>
+            <li>A lowercase character</li>
+            <li>An alphabetic character</li>
+            <li>A minimum of 8 characters</li>
+          </ul>
+        </div>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="username" , name="username" placeholder="Username" required>
+          <label for="floatingInput" style="
+          margin-top: 200px;">Username</label>
+        </div>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="fname" , name="fname" placeholder="First Name" required>
+          <label for="floatingInput">First Name</label>
+        </div>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="lname" , name="lname" placeholder="Last Name" required>
+          <label for="floatingInput">Last Name</label>
+        </div>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="email" , name="email" placeholder="name@example.com" required>
+          <label for="floatingInput">Email Address</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="pass1" , name="pass1" placeholder="Password" required>
+          <label for="floatingPassword">Password</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="pass2" , name="pass2" placeholder="Confirm Password" required>
+          <label for="floatingPassword">Confirm Your Password</label>
+        </div>
+        <div class="confirmation-text">
+          <span>By ticking this box, I agree to the processing of my personal data by Accenture as explained in
+            its</span>
+
+          <span>
+            <a href="https://www.accenture.com/us-en/about/privacy-policy">
+              <span>privacy statement</span>
+            </a>
+            <span>and</span>
+            <span>
+              <a href="https://www.accenture.com/us-en/careers/life-at-accenture/privacy-policy">
+                <span>recruiting and hiring privacy,</span>
+              </a>
+            </span>
+            <span>
+              which includes 1) assessing my suitability for employment for roles I’m applying to and future opportunities, and 2) receiving information about Accenture and new job opportunities.
+            </span>
+          </span>
+        </div>
+        <div class="checkbox mb-3">
+          <label>
+            <input id="accept-me" type="checkbox" value="remember-me" required> I Accept
+          </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Create Account</button>
+        <p>Already have an Account?? <a href="{% url 'signin' %}">Sign In</a></p>
+        <p><a href="{% url 'signup' %}">Forgot your Password</a></p>
+      </div>
+    </form>
+    <!--<p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>-->
+
+    <div class="cont-footer" id="main-footer">
+      <footer class="rootfooter" role="contentinfo">
+        <span class="foo-span">
+        </span>
+        <div class="copyright" title="© 2023 Aapurti - Portal, Inc. All rights reserved.">
+          © 2023 Aapurti - Portal, Inc. All rights reserved.
+        </div>
+        <span class="foo-last"></span>
+      </footer>
+    </div>
+  </main>
+</body>
+
+</html>
