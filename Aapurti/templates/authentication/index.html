@@ -59,7 +59,7 @@
         FAQs
       </a>
     </div>
-    <div class="Amain_photo">
+    <!--<div class="Amain_photo">
       <div class="Amain-quote">
         <div class="Amain-text">
           <span id="Amain-text" class="Amain-text">Bring on someone exceptional</span>
@@ -67,6 +67,17 @@
         <div class="Amain-text-2">
           <span id="Amain-text-2" class="Amain-text-2">Aapurti Web - Portal</span>
         </div>
+      </div>
+    </div>-->
+    <div class="page-hero">
+      <div class="image">
+        <div class="image-container">
+          <img src="{% static 'index-banner.jpg' %}" class="banner">
+        </div>
+      </div>
+      <div class="container">
+        <h1>Bring on someone Exceptional</h1>
+        <h2>Aapurti - Web Portal</h2>
       </div>
     </div>
 
@@ -84,11 +95,13 @@
                     <h5 class="card-title">I am a Candidate</h5>
                     <p class="card-text">This is the destination for new candidates! Click here to register or log-in.
                     </p>
-                    <button class="button button--mimas">
+                    <form action="https://accenture.wd3.myworkdayjobs.com/AccentureCareers/login?">
+                    <button class="button button--mimas" type="submit">
                       <a href="https://accenture.wd3.myworkdayjobs.com/AccentureCareers/login?" class="btn-href">
                         <span class="cand">Candidate Login</span>
                       </a>
                     </button>
+                  </form>
                   </div>
                 </div>
               </div>
@@ -103,11 +116,13 @@
                     <p class="card-text">Click here to manage talent-pool, view new job descriptionand status of
                       applications.
                     </p>
+                    <form action="/vendorsignin">
                     <button class="button button--mimas">
                       <a href="{% url 'vendorsignin' %}" class="btn-href">
                         <span class="cand">Vendor Login</span>
                       </a>
                     </button>
+                  </form>
                   </div>
                 </div>
               </div>
@@ -237,7 +252,7 @@
 
             <div class="info-left-1">
               <div class="info-left-1_1">
-                <img id="info-left" src="{% static '472509.jpg' %}">
+                <img id="info-left" src="{% static '1127105013.jpg' %}">
               </div>
               <div class="info-left-text">
                 <div class="info-left-text-1">
@@ -272,7 +287,7 @@
 
             <div class="info-left-1 info-middle">
               <div class="info-left-1_1">
-                <img id="info-left" src="{% static '2107630.jpg' %}">
+                <img id="info-left" src="{% static '1350414597.jpg' %}">
               </div>
               <div class="info-left-text">
                 <div class="info-left-text-1">
@@ -308,7 +323,7 @@
 
             <div class="info-left-1 info-right">
               <div class="info-left-1_1">
-                <img id="info-left" src="{% static '1353443295.jpg' %}">
+                <img id="info-left" src="{% static '1307705211.jpg' %}">
               </div>
               <div class="info-left-text">
                 <div class="info-left-text-1">

@@ -43,17 +43,27 @@
         <a href="#about">About</a>
       </div>
     </div>
-    <div class="b-example-divider"></div>
+    <div class="below-header">
+      <div class="below-header-2">
+        <div class="banner">
+          <div class="banner-1">
+            <div class="fbanner">
+      <div class="b-example-divider"></div>
+      <img class="banner-size" src="{% static 'banner' %}" alt="Aapurti-Portal">
+      <div class="b-example-divider-2"></div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
 
     <form action="/signin" method="post">
       {% csrf_token %}
-      <img class="banner-size" src="{% static 'banner' %}" alt="Aapurti-Portal">
-      <div class="b-example-divider-2"></div>
       <div id="signin-border">
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
         <br>
         {% for message in messages %}
-        <div class="msg" role="alert">
+        <div class="msg-{{ message.tags }}" role="alert">
           <strong style="color:white">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
               class="bi bi-exclamation-circle" viewBox="0 0 16 16">

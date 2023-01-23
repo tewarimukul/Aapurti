@@ -33,12 +33,22 @@ body {
     height: auto;
 }
 
-.msg {
+.msg-error {
     padding-bottom: 5px;
     margin-bottom: 5px;
     padding-top: 5px;
     border-radius: 7px;
     background-color: red;
+    text-align: center;
+    transition: 2s;
+}
+
+.msg-success {
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    border-radius: 7px;
+    background-color: green;
     text-align: center;
     transition: 2s;
 }
@@ -60,17 +70,16 @@ body {
     border-top-right-radius: 0;
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 .banner-size {
-    margin-top: 3.5rem !important;
-    margin-bottom: 1.5rem !important;
+    display: inline;
+    width: auto;
+    max-width: 100%;
     height: auto;
-    object-fit: initial;
-    left: 50%;
-    margin: 0px auto;
-    position: relative;
-    top: 17%;
-    transform: translate(-50%, -50%);
-    width: 100%;
+    vertical-align: middle;
 }
 
 .btn {
@@ -123,20 +132,69 @@ body {
     }
 }
 
+.below-header {
+    padding-top: 65px;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-top-width: 1px;
+    border-right: 0px;
+    border-bottom-width: 1px;
+    border-left-width: 0px;
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.below-header-2 {
+    
+    max-width: auto;
+    
+    zoom: 1;
+    box-sizing: border-box;
+    margin-bottom: 70px;
+}
+
+.banner {
+    flex-wrap: wrap;
+    width: 100%;
+    display: flex;
+    zoom: 1;
+}
+
+.banner-1 {
+    margin-bottom: 100px;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    flex-shrink: 1;
+    min-width: 1px;
+    max-width: 100%;
+    width: 33.333%;
+    flex: 1 1 auto;
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-stretch: normal;
+    content: none;
+}
+
+.fbanner {
+    zoom: 1;
+    box-sizing: border-box;
+    -webkit-box-direction: normal;
+}
+
 .b-example-divider, .b-example-divider-2 {
-    height: 3.1rem;
+    height: auto;
     background-color: #A100FF;
     border: solid #A100FF;
-    border-width: 1px 0;
+    border-width: 4px 0;
     box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
   }
 
-.b-example-divider-2 {
-    height: 8.5px !important;
-    top: -124px !important;
-    /* margin-bottom: 0px; */
-    position: relative;
-}
+
 .b-example-vr {
     flex-shrink: 0;
     width: 1.5rem;
