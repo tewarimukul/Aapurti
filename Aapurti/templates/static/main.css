@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Sofia+Sans+Extra+Condensed:ital,wght@1,200;1,500&display=swap');
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+div,
+table,
+select,
+button {
+  font-family: 'Poppins', sans-serif !important;
+  text-align: center;
+  font-size: 16px !important;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.jobs-desc {
+  margin: 70px;
+}
+
+td {
+  border: 1px solid #888686;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  border: 1px solid #888686;
+  padding: 8px;
+  text-align: center;
+  font-weight: bolder;
+  font-size: large;
+  border-bottom-width: 5px;
+  border-bottom-style: groove;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+.social {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.approval {
+  height: 21px;
+  width: 21px;
+}
+
+.btn:not(:disabled):not(.disabled) {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 10px 15px;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 10px;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  text-transform: none;
+  overflow: visible;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+.btn:hover:not(:disabled):not(.disabled) {
+  color: #fff;
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.btn.disabled,
+.btn:disabled {
+  cursor: none;
+  pointer-events: none;
+  opacity: .65;
+  color: #fff;
+  background-color: #7a7e7b;
+  border-color: #7a7e7b;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 10px 15px;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 10px;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  text-transform: none;
+  overflow: visible;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  -webkit-appearance: button;
+}
+
+.mo-btn {
+  background-color: #287fa7 !important;
+  border-color: #287fa7 !important;
+}
+
+.main-header {
+  position: relative;
+  display: block;
+  height: 80px;
+  text-align: center;
+  border-bottom-width: 7px;
+  border-color: black;
+  background-color: mediumpurple;
+  border-style: solid;
+}
+
+.msg-error {
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  padding-top: 5px;
+  border-radius: 7px;
+  background-color: red;
+  text-align: center;
+  transition: 1s;
+  -webkit-animation: fadeinout 8s linear forwards;
+  animation: fadeinout 8s linear forwards;
+}
+
+.msg-success {
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  padding-top: 5px;
+  border-radius: 7px;
+  background-color: green;
+  text-align: center;
+  transition: 1s;
+  -webkit-animation: fadeinout 8s linear forwards;
+  animation: fadeinout 8s linear forwards;
+}
+
+@-webkit-keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.left-side-header {
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  margin: 15px;
+  font-size: 25px !important;
+}
+
+.right-side-header {
+  float: right;
+  text-align: center;
+}
+
+.desc-text {
+  height: 190px;
+    width: 100%;
+    resize: vertical;
+}
+
+.signout-btn {
+      margin: 12px;
+    /* color: white !important; */
+    padding: 10px 15px;
+    border-radius: 15px;
+}
+
+.signout-text {
+  color: white;
+  text-align: center;
+  text-decoration: none; 
+}

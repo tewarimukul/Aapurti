@@ -1,0 +1,359 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.108.0">
+  <title>Aapurti - Home Page</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/headers/">
+  <link href="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/apple-touch-icon.png"
+    sizes="180x180">
+  <link rel="icon" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32"
+    type="image/png">
+  <link rel="icon" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16"
+    type="image/png">
+  <link rel="manifest" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/manifest.json">
+  <link rel="mask-icon" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/safari-pinned-tab.svg"
+    color="#712cf9">
+  <link rel="icon" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/favicon.ico">
+  <meta name="theme-color" content="#712cf9">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'index-page.css' %}" rel="stylesheet">
+</head>
+
+<body class="text-center container-body">
+
+  <main class="form-signin w-100 m-auto">
+    <div class="header">
+      <div id="site-logo" class="site-logo" style="font-size: 16px;">
+        <a href="{% url 'home' %}" data-raofz="14" role="link" style="font-size: 16px;">
+          <img tabindex="-1" aria-label="Links to portal.accenture.com (opens new tab)"
+            src="https://in.accenture.com/careers/wp-content/themes/brandspace/images/Accenture-Logo-Purple.svg"
+            alt="Accenture Logo" id="acc-logo">
+        </a>
+      </div>
+      <div class="logo-seperator"></div>
+      <a href="{% url 'home' %}" class="logo">Aapurti Portal</a>
+      <div class="header-right">
+        <a class="active" href="{% url 'home' %}">Home</a>
+        <a href="https://accenture.wd3.myworkdayjobs.com/AccentureCareers/login">About</a>
+        <a href="{% url 'signin' %}">Contact Us</a>
+      </div>
+    </div>
+    <div class="b-example-divider">
+      <a href="https://in.accenture.com/careers/employee-referral-program/latest-news" class="lat_news">
+        Latest News
+      </a>
+      <a href="https://in.accenture.com/careers/employee-referral-program/faqs/" class="lat_news">
+        FAQs
+      </a>
+    </div>
+    <div class="Amain_photo">
+      <div class="Amain-quote">
+        <div class="Amain-text">
+          <span id="Amain-text" class="Amain-text">Bring on someone exceptional</span>
+        </div>
+        <div class="Amain-text-2">
+          <span id="Amain-text-2" class="Amain-text-2">Aapurti Web - Portal</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-sec sign-panel">
+      <div class="main-sep-1">
+        <h5 class="sign-head">Log-in now and get started!</h5>
+        <div class="main-sep-1_1">
+          <div class="main-sep-1_2">
+
+            <div class="info-left-1">
+              <div class="info-left-1_1">
+                <div class="card" style="width: 21rem;margin-left: 100px;">
+                  <img class="bd-placeholder-img card-img-top" src="{% static 'cv.png' %}" width="100%" height="180">
+                  <div class="card-body">
+                    <h5 class="card-title">I am a Candidate</h5>
+                    <p class="card-text">This is the destination for new candidates! Click here to register or log-in.
+                    </p>
+                    <button class="button button--mimas">
+                      <a href="https://accenture.wd3.myworkdayjobs.com/AccentureCareers/login?" class="btn-href">
+                        <span class="cand">Candidate Login</span>
+                      </a>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-left-1">
+              <div class="info-left-1_1">
+                <div class="card" style="width: 21rem;margin-left: 100px;">
+                  <img class="bd-placeholder-img card-img-top" src="{% static 'seller.png' %}" width="100%" height="180">
+                  <div class="card-body">
+                    <h5 class="card-title">I am a Vendor</h5>
+                    <p class="card-text">Click here to manage talent-pool, view new job descriptionand status of
+                      applications.
+                    </p>
+                    <button class="button button--mimas">
+                      <a href="{% url 'vendorsignin' %}" class="btn-href">
+                        <span class="cand">Vendor Login</span>
+                      </a>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-sec">
+      <div class="main-sep-1">
+        <div class="main-sep-1_1">
+          <div class="main-sep-1_2">
+
+            <div class="info-left-1">
+              <div class="info-left-1_1">
+                <img id="info-left" src="{% static '472509.jpg' %}">
+              </div>
+              <div class="info-left-text">
+                <div class="info-left-text-1">
+                  <h5 class="left-heading">
+                    <span class="left-heading-text">FAQs</span>
+                  </h5>
+                </div>
+              </div>
+              <div class="left-info">
+                <div class="left-info-1">
+                  <div class="left_info-1_1">
+                    <p class="info-text">Everything you need to know about the Aapurti - Web Portal</p>
+                  </div>
+                </div>
+              </div>
+              <div class="exp">
+                <div class="exp-1">
+                  <div class="exp-1_1">
+                    <a href="https://in.accenture.com/careers/employee-referral-program/faqs/"
+                      class="btn-dot btn-prime btn-reg faq-btn" role="link">
+                      <div class="faq-circle circle">
+                        <span class="faq-arrow arrow"></span>
+                      </div>
+                      <span class="icon arrow-text btn-text">Explore</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="info-left-1 info-middle">
+              <div class="info-left-1_1">
+                <img id="info-left" src="{% static '2107630.jpg' %}">
+              </div>
+              <div class="info-left-text">
+                <div class="info-left-text-1">
+                  <h5 class="left-heading">
+                    <span class="left-heading-text">Latest News</span>
+                  </h5>
+                </div>
+              </div>
+              <div class="left-info">
+                <div class="left-info-1">
+                  <div class="left_info-1_1">
+                    <p class="info-text">The Latest ERP news and stories about how Aapurti - Web Portal is making a
+                      difference</p>
+                  </div>
+                </div>
+              </div>
+              <div class="exp">
+                <div class="exp-1">
+                  <div class="exp-1_1">
+                    <a href="https://in.accenture.com/careers/employee-referral-program/faqs/"
+                      class="btn-dot btn-prime btn-reg faq-btn" role="link">
+                      <div class="faq-circle">
+                        <span class="faq-arrow arrow"></span>
+                      </div>
+                      <span class="icon arrow-text btn-text">Explore</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="info-left-1 info-right">
+              <div class="info-left-1_1">
+                <img id="info-left" src="{% static '1353443295.jpg' %}">
+              </div>
+              <div class="info-left-text">
+                <div class="info-left-text-1">
+                  <h5 class="left-heading">
+                    <span class="left-heading-text">Visit Accenture Careers</span>
+                  </h5>
+                </div>
+              </div>
+              <div class="left-info ">
+                <div class="left-info-1">
+                  <div class="left_info-1_1">
+                    <p class="info-text">Visit Accenture Career Portal for Open roles and Application status</p>
+                  </div>
+                </div>
+              </div>
+              <div class="exp">
+                <div class="exp-1">
+                  <div class="exp-1_1">
+                    <a href="https://in.accenture.com/careers/employee-referral-program/faqs/"
+                      class="btn-dot btn-prime btn-reg faq-btn" role="link">
+                      <div class="faq-circle">
+                        <span class="faq-arrow arrow"></span>
+                      </div>
+                      <span class="icon arrow-text btn-text">Explore</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-sec">
+      <div class="main-sep-1">
+        <div class="main-sep-1_1">
+          <div class="main-sep-1_2">
+
+            <div class="info-left-1">
+              <div class="info-left-1_1">
+                <img id="info-left" src="{% static '472509.jpg' %}">
+              </div>
+              <div class="info-left-text">
+                <div class="info-left-text-1">
+                  <h5 class="left-heading">
+                    <span class="left-heading-text">FAQs</span>
+                  </h5>
+                </div>
+              </div>
+              <div class="left-info">
+                <div class="left-info-1">
+                  <div class="left_info-1_1">
+                    <p class="info-text">Everything you need to know about the Aapurti - Web Portal</p>
+                  </div>
+                </div>
+              </div>
+              <div class="exp">
+                <div class="exp-1">
+                  <div class="exp-1_1">
+                    <a href="https://in.accenture.com/careers/employee-referral-program/faqs/"
+                      class="btn-dot btn-prime btn-reg faq-btn" role="link">
+                      <div class="faq-circle circle">
+                        <span class="faq-arrow arrow"></span>
+                      </div>
+                      <span class="icon arrow-text btn-text">Explore</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="info-left-1 info-middle">
+              <div class="info-left-1_1">
+                <img id="info-left" src="{% static '2107630.jpg' %}">
+              </div>
+              <div class="info-left-text">
+                <div class="info-left-text-1">
+                  <h5 class="left-heading">
+                    <span class="left-heading-text">Latest News</span>
+                  </h5>
+                </div>
+              </div>
+              <div class="left-info">
+                <div class="left-info-1">
+                  <div class="left_info-1_1">
+                    <p class="info-text">The Latest ERP news and stories about how Aapurti - Web Portal is making a
+                      difference</p>
+                  </div>
+                </div>
+              </div>
+              <div class="exp">
+                <div class="exp-1">
+                  <div class="exp-1_1">
+                    <a href="https://in.accenture.com/careers/employee-referral-program/faqs/"
+                      class="btn-dot btn-prime btn-reg faq-btn" role="link">
+                      <div class="faq-circle">
+                        <span class="faq-arrow arrow"></span>
+                      </div>
+                      <span class="icon arrow-text btn-text">Explore</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="info-left-1 info-right">
+              <div class="info-left-1_1">
+                <img id="info-left" src="{% static '1353443295.jpg' %}">
+              </div>
+              <div class="info-left-text">
+                <div class="info-left-text-1">
+                  <h5 class="left-heading">
+                    <span class="left-heading-text">Visit Accenture Careers</span>
+                  </h5>
+                </div>
+              </div>
+              <div class="left-info ">
+                <div class="left-info-1">
+                  <div class="left_info-1_1">
+                    <p class="info-text">Visit Accenture Career Portal for Open roles and Application status</p>
+                  </div>
+                </div>
+              </div>
+              <div class="exp">
+                <div class="exp-1">
+                  <div class="exp-1_1">
+                    <a href="https://in.accenture.com/careers/employee-referral-program/faqs/"
+                      class="btn-dot btn-prime btn-reg faq-btn" role="link">
+                      <div class="faq-circle">
+                        <span class="faq-arrow arrow"></span>
+                      </div>
+                      <span class="icon arrow-text btn-text">Explore</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cont-footer" id="main-footer">
+      <footer class="rootfooter" role="contentinfo">
+        <span class="foo-span">
+        </span>
+        <div class="copyright" title="© 2023 Aapurti - Portal, Inc. All rights reserved.">
+          © 2023 Aapurti - Portal, Inc. All rights reserved.
+        </div>
+        <span class="foo-last"></span>
+      </footer>
+    </div>
+  </main>
+</body>
+
+</html>
