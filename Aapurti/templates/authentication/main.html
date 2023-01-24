@@ -11,145 +11,192 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>   
-  <script>
-    
-  $("#post_btn").click(function(){
-    $(".msg-error").fadeIn(2000);
-    $(".msg-error").delay(6000);
-    $(".msg-error").fadeOut(2000); 
-  });
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
 
-  </script>
-  <link rel="stylesheet" href="{% static 'main.css' %}">
+        $("#post_btn").click(function () {
+            $(".msg-error").fadeIn(2000);
+            $(".msg-error").delay(6000);
+            $(".msg-error").fadeOut(2000);
+        });
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+  
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
 
 <body>
-    <header class="main-header">
-        <div class="m-header">
-            <div class="left-side-header">
-                <span>
-                    <p>Aapurti - Portal</p>
-                </span>
-            </div>
-            <div class="right-side-header">
-                <button type="submit" class="mo-btn signout-btn"><a href="/signout" class="signout-text">SignOut</a></button>
-            </div>
+    <div class="header">
+        <div class="side-nav">
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
         </div>
-    </header>
+        <div id="site-logo" class="site-logo" style="font-size: 16px;">
+            <a href="{% url 'home' %}" data-raofz="14" role="link" style="font-size: 16px;">
+                <img tabindex="-1" aria-label="Links to portal.accenture.com (opens new tab)"
+                    src="https://in.accenture.com/careers/wp-content/themes/brandspace/images/Accenture-Logo-Purple.svg"
+                    alt="Accenture Logo" id="acc-logo">
+            </a>
+        </div>
+        <div class="logo-seperator"></div>
+        <a href="#default" class="logo">Aapurti - Portal</a>
+        <div class="header-right">
+            <a class="active" href="#home">Home</a>
+            <a href="#contact">Contact</a>
+            <div class="user-icon"></div>
+        </div>
+    </div>
 
-    
 
-
-    <h3>Welcome to Aapurti</h3>
+    <!--<h3>Welcome to Aapurti</h3>
 
 
     <h3>Hello {{ fname }}!</h3>
-    <h4>You have successfully logged in.</h4>
+    <h4>You have successfully logged in.</h4>-->
+    <main>
+        <div class="job-cont">
+            <p class="job-head">
+                <h3 class="job-list">Job List</h3>
+            </p>
+        </div>
+        <section class="header-table">
+            <div class="items-controller">
+                <h5><b>Show</b></h5>
+                <select name="" id="itemperpage">
+                    <option value="01">01</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="08" selected>08</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                </select>
+                <h5><b>Per Page</b></h5>
+            </div>
+            <div class="search">
+                <h5><b>Search</b></h5>
+                <input type="text" name="" id="search" placeholder="search">
+            </div>
+        </section>
 
-    <br>
-    <div class="jobs-desc">
-        {% for message in messages %}
-    <div class="msg-{{ message.tags }}" role="alert">
-        <strong style="color:white">{{ message }}</strong>
-    </div>
-    {% endfor %}
-        <table>
-            <tr>
-                <th>Job ID</th>
-                <th>Primary Skill</th>
-                <th>Level</th>
-                <th>Project</th>
-                <th>Location</th>
-                <th>Approval</th>
-                <th>View JD</th>
-                <th>Social Media</th>
-                <th>Go!</th>
-            </tr>
-            {% for a in JobDetailsData %}
-            <tr>
-                <form action="/fbPost" method="post">
-                {% csrf_token %}
-                <td>{{ a.jobid }}</td> <!--{% if player.player_check %} checked{% endif %}-->
-                <td>{{ a.primary_skill }}</td>
-                <td>{{ a.level }}</td> <!---name="{{ a.filled }}" value="False"-->
-                <td>{{ a.project }}</td>
-                <td>{{ a.location }}</td>
-                <td><input class="approval" type="checkbox" id="Approval" name="Approval" {% if a.Approval %} checked {% endif %} onclick="return false;">
-                    {% if a.Approval %}
-                    <div>
-                        <span>
-                            <b>Approved !</b>
-                        </span>
-                    </div>
-                    {% else %}
-                    <div>
-                        <span>
-                            <b>Approval is Pending...</b>
-                        </span>
-                    </div>
-                    {% endif %}
-                </td>
-                <td>
-                    <button type="button"  class="mo-btn btn btn-info btn-lg" data-id="{{ a.jobid }}"  data-toggle="modal" data-target="#modal_{{ a.jobid }}" data-whatever="{{ a.description }}">Click me!</button>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+          </div>
 
-                    <div class="modal fade" id="modal_{{ a.jobid }}" role="dialog">
-                        <div class="modal-dialog">
-                            
-                          <!-- Modal content-->
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal">&times;</button>
-                              <h4 class="modal-title">Job Description for {{ a.jobid }}</h4>
-                            </div>
-                            <div class="modal-body">
-                              <textarea id="Description" name="Description"  class="desc-text">{{ a.description }}</textarea>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
-                          </div>
-                          
-                        </div>
-                      </div>
+        <section class="field">
+            <div class="jobs-desc">
+                {% for message in messages %}
+                <div class="msg-{{ message.tags }}" role="alert">
+                    <strong style="color:white">{{ message }}</strong>
+                </div>
+            </div>
+            {% endfor %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Job ID</th>
+                        <th>Primary Skill</th>
+                        <th>Level</th>
+                        <th>Project</th>
+                        <th>Location</th>
+                        <th>Approval Status</th>
+                        <th>View JD</th>
+                        <th>Social Media</th>
+                        <th>Go!</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for a in JobDetailsData %}
+                    <tr>
+                        <form action="/fbPost" method="post">
+                            {% csrf_token %}
+                            <td>{{ a.jobid }}</td> <!--{% if player.player_check %} checked{% endif %}-->
+                            <td>{{ a.primary_skill }}</td>
+                            <td>{{ a.level }}</td> <!---name="{{ a.filled }}" value="False"-->
+                            <td>{{ a.project }}</td>
+                            <td>{{ a.location }}</td>
+                            <td>
+                                {% if a.Approval %}
+                                <div>
+                                    <span class="app-{{ a.Approval }}">
+                                        <b>Approved</b>
+                                    </span>
+                                </div>
+                                {% else %}
+                                <div>
+                                    <span class="app-{{ a.Approval }}">
+                                        <b>Waiting for Approval</b>
+                                    </span>
+                                </div>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <button type="button" class="mo-btn btn btn-info btn-lg" data-id="{{ a.jobid }}"
+                                    data-toggle="modal" data-target="#modal_{{ a.jobid }}"
+                                    data-whatever="{{ a.description }}">Click me!</button>
 
-    </td>
-    <td>
-        <select class="social" id="social" name="social" multiple required>
-            <option value="Facebook">Facebook</option>
-            <option value="Twitter">Twitter</option>
-            <option value="LinkedIn">LinkedIn</option>
-            <option value="Instagram">Instagram</option>
-        </select>
-    </td>
-    <td><button class="btn" id="post_btn" type="submit" name="submit-btn" {% if not a.Approval %} disabled {% endif %}>Post</button></td>
-        </form>
-    </tr>
-    {% endfor %}
-    </table>
-    </div>
+                                <div class="modal fade" id="modal_{{ a.jobid }}" role="dialog">
+                                    <div class="modal-dialog">
 
-    
-      
-    <!--<form action="/fbPost" method="post">
-        {% csrf_token %}
-        <label for="api">For posting</label>
-        <input type="radio" id="api" name="api" value="True" placeholder="Type True or False" required>
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close"
+                                                    data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Job Description for {{ a.jobid }}</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <textarea id="Description" name="Description"
+                                                    class="desc-text">{{ a.description }}</textarea>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default"
+                                                    data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-        <button type="submit">Post</button>
-        <br>
-        
-    </form>-->
-    
-    
+                            </td>
+                            <td>
+                                <select class="social" id="social" name="social" multiple required>
+                                    <option value="Facebook">Facebook</option>
+                                    <option value="Twitter">Twitter</option>
+                                    <option value="LinkedIn">LinkedIn</option>
+                                    <option value="Instagram">Instagram</option>
+                                </select>
+                            </td>
+                            <td>
+                                <button class="btn" id="post_btn" type="submit" name="submit-btn" {% if not a.Approval %} disabled {% endif %}>Post</button>
+                            </td>
+                        </form>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="bottom-field">
+                <ul class="pagination">
+                    <li class="prev"><a href="#" id="prev">&#139;</a></li>
+                    <!-- page number here -->
+                    <li class="next"><a href="#" id="next">&#155;</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
     <script src="{% static 'Social_post.js' %}"></script>
     <script src="{% static 'popup.js' %}"></script>
-    
-    
-
 </body>
 
 </html>
