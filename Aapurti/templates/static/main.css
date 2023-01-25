@@ -38,7 +38,7 @@ td {
 }
 
 th {
- /*border: 1px solid #888686;*/
+  /*border: 1px solid #888686;*/
   padding: 8px;
   text-align: center;
   font-weight: bolder;
@@ -262,7 +262,7 @@ body {
 .header {
   overflow: hidden;
   background-color: #fff;
-  padding: 27px 20px 27px 10px;
+  padding: 27px 20px 34px 10px;
   box-shadow: -3px -20px 53px #000;
   display: flex;
   flex-direction: row;
@@ -598,8 +598,13 @@ h5 {
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
 }
 
 .search input {
@@ -609,10 +614,52 @@ h5 {
 }
 
 .user-icon {
-  background-color: gray;
-  border-radius: 106px;
-  padding-left: 58px;
-  height: 55px;
+  display: flex
+}
+/*
+.user-icon:hover {
+  /*background-color: #a100ff;
+  background-image: url('user-bw.png');
+  background-size: 150px 150px;
+  height: 61px;
+  width: 50px;
+  margin-top: 10px;
+  margin-left: 12px;
+  padding-left: 8px;
+  margin-right: 8px;
+}
+*/
+
+.svg-icon {
+    vertical-align: middle;
+    fill: currentColor;
+    overflow: hidden;
+    height: 87%;
+    display: flex;
+    margin-right: 59px;
+    margin-top: 6px;
+    margin-left: 2px;
+    vertical-align: middle;
+    fill: currentColor;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.svg-icon:hover {
+  vertical-align: middle;
+  fill: currentColor;
+  overflow: hidden;
+  height: 87%;
+  display: flex;
+  margin-right: 59px;
   margin-top: 6px;
-  margin-left: 15px;
+  margin-left: 2px;
+  vertical-align: middle;
+  fill: #fff;
+  overflow: hidden;
+  stroke: #fff;
+  stroke-width: 50;
+  background-color: #a100ff;
+  border-radius: 90px;
+  padding: 10px;
 }

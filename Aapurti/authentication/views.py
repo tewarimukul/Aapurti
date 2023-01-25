@@ -6,7 +6,8 @@ from django.contrib.auth import authenticate, login, logout
 import facebook as fb
 import logging
 from .models import JobDetails
-
+from urllib3.exceptions import InsecureRequestWarning
+from urllib3 import disable_warnings
 
 logging.basicConfig(level=logging.INFO)
 
@@ -115,6 +116,7 @@ def signout(request):
 
 def fbPost(request):
 
+    disable_warnings(InsecureRequestWarning)
     if request.method == "POST":
 
         api_req = request.POST['Approval']
@@ -125,7 +127,7 @@ def fbPost(request):
             access_token = "EAAM6XmDmYZCgBAM272OOF12zzdLqfZAWt20vwRtzV04Mckci5DgxiR1xaLy4JW2fePzaUZCtpWqTKLNZAKi8TQCfpugcgwXASmrhIZC3ZAdhBqtl8lDcCogptDJsaK3EiHZCZBZBBYH1gZCjD6ioZCWkQqAkEDI0nIC6FC7MzLgaIwmChmag0JpDzcdtgIZCruNWyfMZD"
             myobject = fb.GraphAPI(access_token)
             messages.success(request, 'Post Successful !!!')
-            myobject.put_object("me", "feed", message= api_description)
+            myobject.put_object("me", "feed", message=api_description)
             return redirect('main')
             #return render(request, "authentication/fb-post1.html")
 
