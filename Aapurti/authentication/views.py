@@ -20,6 +20,7 @@ def home(request):
 
 def signup(request):
 
+    messages = null
     if request.method == "POST":
         username = request.POST['username']
         fname = request.POST['fname']
@@ -86,6 +87,7 @@ def fb_post1(request):
 
 def signin(request):
 
+    messages = null
     if request.method == "POST":
         username = request.POST['username']
         pass1 = request.POST['pass1']
@@ -116,6 +118,7 @@ def signout(request):
 
 def fbPost(request):
 
+    messages = null
     disable_warnings(InsecureRequestWarning)
     if request.method == "POST":
 
@@ -124,10 +127,10 @@ def fbPost(request):
         api_description = request.POST['Description']
         #return HttpResponse(api_description)
         if api_req == "on" and api_project == "Facebook":
-            access_token = "EAAM6XmDmYZCgBAM272OOF12zzdLqfZAWt20vwRtzV04Mckci5DgxiR1xaLy4JW2fePzaUZCtpWqTKLNZAKi8TQCfpugcgwXASmrhIZC3ZAdhBqtl8lDcCogptDJsaK3EiHZCZBZBBYH1gZCjD6ioZCWkQqAkEDI0nIC6FC7MzLgaIwmChmag0JpDzcdtgIZCruNWyfMZD"
+            access_token = "EAAM6XmDmYZCgBAKSovBXnqCA68jGVYt55t8yzRi8QlrEzFj17wpkHvnylLJMPKI1MZCoTGpOWoFYWS4ZBU95AedVjjgUsYiZCsi1zMEbwRDIqDzJa10iwj9nrvX6OiF4AoZAzDpjQzZCSsYZBoBpmtcPVZCNjgcuWu83jzkPB8PUjExSZAZBGHyIDw8nR8SDKZAkHkZD"
             myobject = fb.GraphAPI(access_token)
-            messages.success(request, 'Post Successful !!!')
             myobject.put_object("me", "feed", message=api_description)
+            messages.success(request, 'Post Successful !!!')
             return redirect('main')
             #return render(request, "authentication/fb-post1.html")
 
@@ -147,6 +150,7 @@ def fbPost(request):
 
 def vendorsignin(request):
 
+    messages = null
     if request.method == "POST":
         username = request.POST['username']
         pass1 = request.POST['pass1']
