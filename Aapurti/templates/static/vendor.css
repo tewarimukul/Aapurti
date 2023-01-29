@@ -589,6 +589,23 @@ h5 {
   border-radius: 90px;
 }
 
+input::file-selector-button {
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #a100ff;
+  border-color: #a100ff;
+  color: #fff;
+  transition: 0.3s;
+}
+
+input::file-selector-button:hover {
+  background-color: #fff;
+  border-color: #fff;
+  color: #a100ff;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
 /* SIDENAV */
 .sidenav {
   width: 275px;
@@ -731,6 +748,159 @@ h5 {
 .show {display: block;
 }
 
+/* USer Side Nav */
+
+.usersidenav {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.usersidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.usersidenav a:hover {
+  color: #f1f1f1;
+}
+
+.usersidenav .closebtn {
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  /*margin-left: 50px;*/
+}
+
+@media screen and (max-height: 450px) {
+  .usersidenav {
+    padding-top: 15px;
+  }
+
+  .usersidenav a {
+    font-size: 18px;
+  }
+}
+
+.side-nav-logo {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.user-side-nav-logo {
+  flex-direction: row;
+  display: flex;
+}
+
+.user-side-nav-logo div {
+  display: flex;
+  clear:both;
+  display: flex;
+}
+
+.user-side-nav span:hover {
+  background-color: #a100ff;
+  color: #fff;
+  font-size: 25px !important;
+  font-weight: bolder;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 90px;
+}
+
+.usersidenav {
+  height: 0;
+  width: 0;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  transition: 0.5s;
+  padding-top: 19px;
+  margin-right: 5.5vw;
+  margin-top: 3vh;
+  border-radius: 20px;
+  box-shadow: 1px 2px 58px -3px;
+  transition: 0.3s;
+  overflow: hidden;
+}
+
+.usersidenav a {
+  padding: 8px 8px 8px 8px;
+  text-decoration: none;
+  font-size: 24px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.usersidenav a:hover {
+  color: #a100ff;
+  font-weight: bolder;
+}
+
+.usersidenav .closebtn {
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  /*margin-left: 50px;*/
+}
+
+.user-svg-icon {
+  vertical-align: middle;
+  fill: currentColor;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  margin-right: 14px;
+  margin-top: 0px;
+  margin-left: -5vw;
+  vertical-align: middle;
+  fill: #fff;
+  overflow: hidden;
+  stroke: #fff;
+  stroke-width: 50;
+  background-color: #a100ff;
+  border-radius: 90px;
+  padding: 10px;
+}
+
+.user-side-nav-1 {
+  display: flex;
+  flex-direction: row;
+  padding-left: 40px;
+}
+
+.username {
+  display: flex;
+  flex-direction: column;
+  font-size: 23px !important;
+  text-align: left;
+}
+
+.user-divider {
+  background-color: #a100ff;
+  height: 1px;
+  width: 90%;
+  display: flex;
+  margin-top: 13px;
+  margin-bottom: 7px;
+}
+
+.usern {
+  font-size: 20px;
+  color: gray;
+}
+/********/
+
+
 /* FOOTER */
 
 .cont-footer {
@@ -865,6 +1035,10 @@ h5 {
 
 .vendor-form {
     margin-top: 50px;
+}
+
+.form-control {
+  border-radius: 1.25rem !important;
 }
 
 .card {
