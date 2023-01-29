@@ -47,11 +47,11 @@
       <a href="{% url 'home' %}" class="logo">Aapurti Portal</a>
       <div class="header-right">
         <a class="active" href="{% url 'home' %}">Home</a>
-        <a href="https://accenture.wd3.myworkdayjobs.com/AccentureCareers/login">About</a>
+        <a href="#page-hero-abt">About</a>
         <a href="{% url 'signin' %}">Contact Us</a>
       </div>
     </div>
-    <div class="b-example-divider">
+    <div class="b-example-divider" style="display: none;">
       <a href="https://www.accenture.com/in-en" class="lat_news">
         About Accenture
       </a>
@@ -89,8 +89,8 @@
 
             <div class="info-left-1">
               <div class="info-left-1_1">
-                <div class="card" style="width: 21rem;margin-left: 100px;">
-                  <img class="bd-placeholder-img card-img-top" src="{% static 'cv.png' %}" width="100%" height="180">
+                <div class="card" style="width: 18rem;margin-left: 100px;">
+                  <img class="bd-placeholder-img card-img-top" src="{% static 'cv.png' %}" width="43%" height="120">
                   <div class="card-body">
                     <h5 class="card-title">I am a Candidate</h5>
                     <p class="card-text">This is the destination for new candidates! Click here to register or log-in.
@@ -109,8 +109,8 @@
 
             <div class="info-left-1">
               <div class="info-left-1_1">
-                <div class="card" style="width: 21rem;margin-left: 100px;">
-                  <img class="bd-placeholder-img card-img-top" src="{% static 'seller.png' %}" width="100%" height="180">
+                <div class="card" style="width: 18rem;margin-left: 100px;">
+                  <img class="bd-placeholder-img card-img-top" src="{% static 'seller.png' %}" width="43%" height="120">
                   <div class="card-body">
                     <h5 class="card-title">I am a Vendor</h5>
                     <p class="card-text">Click here to manage talent-pool, view new job descriptionand status of
@@ -134,14 +134,79 @@
 
     <div class="info-sec">
       <div class="main-sep-1">
+        <h5 class="exp-head">Explore More !</h5>
         <div class="main-sep-1_1">
           <div class="main-sep-1_2">
 
             <div class="info-left-1">
               <div class="info-left-1_1">
                 <img id="info-left" src="{% static '472509.jpg' %}">
+                <div class="overlay">
+                  <h5 class="left-heading">
+                    <span class="left-heading-text">FAQs</span>
+                    <div class="left_info-1_1">
+                      <p class="info-text">Everything you need to know about the Aapurti - Web Portal. Go through the FAQ forum, and get all your queries cleared.</p>
+                    </div>
+                    <div class="info-left-btn">
+                      <button class="info-btn" onmouseover="showBtn('info-text')" onmouseout="hideBtn('info-text')">
+                        <div class="info-a">
+                          <a href="https://in.accenture.com/careers/employee-referral-program/faqs/">
+                            <span class="info-a-ct" id="info-text">&gt;</span>
+                          </a>
+                        </div>
+                      </button>
+                    </div>
+                  </h5>
+                </div>
               </div>
-              <div class="info-left-text">
+            </div>
+
+            <div class="info-left-1 info-middle">
+              <div class="info-left-1_1">
+                <img id="info-left" src="{% static '2107630.jpg' %}">
+                <div class="overlay">
+                  <h5 class="left-heading">
+                    <span class="left-heading-text">Visit Facebook</span>
+                    <div class="left_info-1_1">
+                      <p class="info-text">Visit our Aapurti - Web Portal to get latest updates on Open Demands, and get connect with us.</p>
+                    </div>
+                    <div class="info-left-btn">
+                      <button class="info-btn" onmouseover="showBtn('info-text-mid')" onmouseout="hideBtn('info-text-mid')">
+                        <div class="info-a">
+                          <a href="https://www.facebook.com/people/Aapurti/100089245873582/">
+                            <span class="info-a-ct" id="info-text-mid">&gt;</span>
+                          </a>
+                        </div>
+                      </button>
+                    </div>
+                  </h5>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-left-1 info-right">
+              <div class="info-left-1_1">
+                <img id="info-left" src="{% static '1353443295.jpg' %}">
+                <div class="overlay">
+                  <h5 class="left-heading">
+                    <span class="left-heading-text">Visit Accenture Careers</span>
+                    <div class="left_info-1_1">
+                      <p class="info-text">Visit Accenture Career Portal for Open roles and Application status. And get to know about Accenture.</p>
+                    </div>
+                    <div class="info-left-btn info-last">
+                      <button class="info-btn" onmouseover="showBtn('info-text-last')" onmouseout="hideBtn('info-text-last')">
+                        <div class="info-a">
+                          <a href="https://www.accenture.com/in-en/careers/">
+                            <span class="info-a-ct" id="info-text-last">&gt;</span>
+                          </a>
+                        </div>
+                      </button>
+                    </div>
+                  </h5>
+                </div>
+              </div>
+            </div>
+              <!--<div class="info-left-text">
                 <div class="info-left-text-1">
                   <h5 class="left-heading">
                     <span class="left-heading-text">FAQs</span>
@@ -168,13 +233,13 @@
                   </div>
                 </div>
               </div>
-            </div>
-
-
-
+            
             <div class="info-left-1 info-middle">
               <div class="info-left-1_1">
                 <img id="info-left" src="{% static '2107630.jpg' %}">
+                <div class="overlay">
+                  <div class="text">Hello Testing 1 2 3</div>
+                </div>
               </div>
               <div class="info-left-text">
                 <div class="info-left-text-1">
@@ -194,7 +259,7 @@
               <div class="exp">
                 <div class="exp-1">
                   <div class="exp-1_1">
-                    <a href="https://in.accenture.com/careers/employee-referral-program/faqs/"
+                    <a href="https://www.facebook.com/people/Aapurti/100089245873582/"
                       class="btn-dot btn-prime btn-reg faq-btn" role="link">
                       <div class="faq-circle">
                         <span class="faq-arrow arrow"></span>
@@ -211,6 +276,9 @@
             <div class="info-left-1 info-right">
               <div class="info-left-1_1">
                 <img id="info-left" src="{% static '1353443295.jpg' %}">
+                <div class="overlay">
+                  <div class="text">Hello Testing 1 2 3</div>
+                </div>
               </div>
               <div class="info-left-text">
                 <div class="info-left-text-1">
@@ -229,7 +297,7 @@
               <div class="exp">
                 <div class="exp-1">
                   <div class="exp-1_1">
-                    <a href="https://in.accenture.com/careers/employee-referral-program/faqs/"
+                    <a href="https://www.accenture.com/in-en/careers/"
                       class="btn-dot btn-prime btn-reg faq-btn" role="link">
                       <div class="faq-circle">
                         <span class="faq-arrow arrow"></span>
@@ -239,18 +307,18 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div>-->
           </div>
         </div>
       </div>
     </div>
 
-    <div class="info-sec">
+   <!-- <div class="info-sec">
       <div class="main-sep-1">
         <div class="main-sep-1_1">
           <div class="main-sep-1_2">
 
-            <!--<div class="info-left-1">
+            <div class="info-left-1">
               <div class="info-left-1_1" style="display: none;">
                 <img id="info-left" src="{% static '1127105013.jpg' %}">
               </div>
@@ -281,7 +349,7 @@
                   </div>
                 </div>
               </div>
-            </div> -->
+            </div> 
 
 
 
@@ -356,6 +424,19 @@
           </div>
         </div>
       </div>
+    </div>-->
+
+    <div class="page-hero-abt" id="page-hero-abt">
+      <div class="image">
+        <div class="image-container">
+          <img src="{% static 'abt_section.jpg' %}" class="banner">
+        </div>
+      </div>
+      <div class="container">
+        <img src="{% static 'Acc_Signin_Logo.png' %}" class="abt-img">
+        <h1>Propel Crowdsourcing and Recruitment to New Levels.</h1>
+        <h3>Aapurti streamlines recruitment process. You can now connect with candidates in real-time within one application. Connect with talent directly through social media; Advertise the requirements based on job-description and skill-set. Candidates can directly apply through Aapurti Web-Portal. Vendors can manage talent-pools and application all through one portal !</h3>
+      </div>
     </div>
 
     <div class="cont-footer" id="main-footer">
@@ -369,6 +450,7 @@
       </footer>
     </div>
   </main>
+  <script src="{% static 'index-hover.js' %}"></script>
 </body>
 
 </html>

@@ -1,3 +1,4 @@
+from contextlib import nullcontext
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.contrib.auth.models import User
@@ -8,11 +9,26 @@ import logging
 from .models import JobDetails
 from urllib3.exceptions import InsecureRequestWarning
 from urllib3 import disable_warnings
+from cryptography.fernet import Fernet
+from django.contrib.auth.hashers import make_password
+import base64
 
 logging.basicConfig(level=logging.INFO)
 
-# Create your views here.
+#Encrypt URL
+def encrypt_name(name):
+    encname = name.encode("ascii")
+    encname = base64.b64encode(encname)
+    encname = encname.decode("ascii")
+    return encname
 
+def decrypt_name(name):
+    decname = name.encode('ascii')
+    decname = base64.b64decode(decname)
+    decname = decname.decode('ascii')
+    return decname
+
+# Create your views here.
 
 def home(request):
     return render(request, "authentication/index.html")
@@ -20,7 +36,6 @@ def home(request):
 
 def signup(request):
 
-    messages = null
     if request.method == "POST":
         username = request.POST['username']
         fname = request.POST['fname']
@@ -63,11 +78,18 @@ def signup(request):
     return render(request, "authentication/signup.html")
 
 
-def main(request):
+def main(request, name):
 
     JobDetailsData = JobDetails.objects.all()
+    fstname = decrypt_name(name.split("+")[0])
+    lstname = decrypt_name(name.split("+")[1])
+    usern = decrypt_name(name.split("+")[2])
 
     data = {
+        'name': name,
+        'fname': fstname.title(),
+        'lname': lstname.title(),
+        'username': usern,
         'JobDetailsData': JobDetailsData
     }
     # return render(request,"authentication/fb-post1.html", data)
@@ -87,19 +109,27 @@ def fb_post1(request):
 
 def signin(request):
 
-    messages = null
     if request.method == "POST":
         username = request.POST['username']
         pass1 = request.POST['pass1']
 
         user = authenticate(username=username, password=pass1)
+        fname = user.first_name
+        lname = user.last_name
+        usern = user.username
+
+        fname_enc = encrypt_name(fname)
+        lname_enc = encrypt_name(lname)
+        usern = encrypt_name(usern)
+
+        name = fname_enc + "+" + lname_enc + "+" + usern
 
         if user is not None:
             login(request, user)
-            fname = user.first_name
 
-            # return render(request, "authentication/main.html", {"fname":fname}, JobDetailsData)
-            return redirect('/main')
+            #return render(request, "authentication/main.html", {fname:fname})
+            #return render(request, "authentication/main.html", {"fname":fname}, JobDetailsData)
+            return redirect('/main/' + str(name), name=name)
             # return main(request, {"fname":fname})
 
         else:
@@ -116,9 +146,8 @@ def signout(request):
     return redirect('home')
 
 
-def fbPost(request):
+def fbPost(request, name):
 
-    messages = null
     disable_warnings(InsecureRequestWarning)
     if request.method == "POST":
 
@@ -127,16 +156,16 @@ def fbPost(request):
         api_description = request.POST['Description']
         #return HttpResponse(api_description)
         if api_req == "on" and api_project == "Facebook":
-            access_token = "EAAM6XmDmYZCgBAKSovBXnqCA68jGVYt55t8yzRi8QlrEzFj17wpkHvnylLJMPKI1MZCoTGpOWoFYWS4ZBU95AedVjjgUsYiZCsi1zMEbwRDIqDzJa10iwj9nrvX6OiF4AoZAzDpjQzZCSsYZBoBpmtcPVZCNjgcuWu83jzkPB8PUjExSZAZBGHyIDw8nR8SDKZAkHkZD"
+            #access_token = "EAAM6XmDmYZCgBAAORhZBXzKNlhMFdyTLadB4IeNmZCv2Iyroj4kbJZCqlz2rT75g8OZB4ZCH6cWZC8elj4ZAtop811k52cMdF6fEiBXQoeh9fJbAPoxnHXT5n5s7IELG9DtjsPOzYEBDQMDIqQVbbnZB8xxbtyZC83cah5aIEnhDRq72JPkigojZCvyPaybpQR01FQZD"
             myobject = fb.GraphAPI(access_token)
             myobject.put_object("me", "feed", message=api_description)
             messages.success(request, 'Post Successful !!!')
-            return redirect('main')
+            return redirect('main', name=name)
             #return render(request, "authentication/fb-post1.html")
 
         else:
             messages.error(request, 'Select valid Posting page')
-            return redirect('main')
+            return redirect('main', name=name)
 
     else:
         return redirect('home')
@@ -150,7 +179,6 @@ def fbPost(request):
 
 def vendorsignin(request):
 
-    messages = null
     if request.method == "POST":
         username = request.POST['username']
         pass1 = request.POST['pass1']
@@ -160,8 +188,17 @@ def vendorsignin(request):
         if user is not None:
             login(request, user)
             fname = user.first_name
+            lname = user.last_name
+            usern = user.username
 
-            return render(request, "authentication/vendor.html", {"fname":fname})
+            fname_enc = encrypt_name(fname)
+            lname_enc = encrypt_name(lname)
+            usern = encrypt_name(usern)
+
+            name = fname_enc + "+" + lname_enc + "+" + usern
+
+            return redirect('/vendor/' + str(name), name=name)
+            #return render(request, "authentication/vendor.html", {"fname":fname})
             #return redirect('/main')
             # return main(request, {"fname":fname})
 
@@ -175,5 +212,15 @@ def vendorsignin(request):
 
 
 
-def vendor(request):
-    return render(request, "authentication/vendor.html")
+def vendor(request, name):
+    fstname = decrypt_name(name.split("+")[0])
+    lstname = decrypt_name(name.split("+")[1])
+    usern = decrypt_name(name.split("+")[2])
+
+    data = {
+        'name': name,
+        'fname': fstname.title(),
+        'lname': lstname.title(),
+        'username': usern,
+    }
+    return render(request, "authentication/vendor.html", data)

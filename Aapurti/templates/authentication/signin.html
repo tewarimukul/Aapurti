@@ -38,7 +38,7 @@
     <div class="header">
       <a href="{% url 'home' %}" class="logo">Aapurti Portal</a>
       <div class="header-right">
-        <a class="active" href="#home">Home</a>
+        <a class="active" href="{% url 'home' %}">Home</a>
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
       </div>
@@ -49,8 +49,20 @@
           <div class="banner-1">
             <div class="fbanner">
       <div class="b-example-divider"></div>
-      <img class="banner-size" src="{% static 'banner' %}" alt="Aapurti-Portal">
-      <div class="b-example-divider-2"></div>
+      <div class="main-banner">
+
+        <div class="page-hero">
+          <div class="image">
+            <div class="image-container">
+              <img src="{% static 'Acc_Banner_Logo.jpg' %}" class="banner">
+            </div>
+          </div>
+          <div class="container">
+            <img src="{% static 'Acc_Signin_Logo.png' %}" class="banner-img">
+            <h2>BE YOURSELF MAKE A DIFFERENCE</h2>
+          </div>
+        </div>
+      <div class="b-example-divider-2" style="display: none;"></div>
     </div>
   </div>
   </div>

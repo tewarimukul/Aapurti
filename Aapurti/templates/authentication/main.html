@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>TFS Dashboard</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
 
-<body>
+<body id="main-body">
     <div class="header">
         <div class="side-nav">
             <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
@@ -46,24 +46,56 @@
         <a href="#default" class="logo">Aapurti - Portal</a>
         <div class="header-right">
             <a class="active" href="#home">Home</a>
-            <a href="#contact">Contact</a>
-            <div type="button" class="user-icon">
+            <!--<a href="#contact">Contact</a>-->
+            <span type="button" class="user-icon" onclick="openUser()">
                 <svg class="svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M843.282963 870.115556c-8.438519-140.515556-104.296296-257.422222-233.908148-297.14963C687.881481 536.272593 742.4 456.533333 742.4 364.088889c0-127.241481-103.158519-230.4-230.4-230.4S281.6 236.847407 281.6 364.088889c0 92.444444 54.518519 172.183704 133.12 208.877037-129.611852 39.727407-225.46963 156.634074-233.908148 297.14963-0.663704 10.903704 7.964444 20.195556 18.962963 20.195556l0 0c9.955556 0 18.299259-7.774815 18.962963-17.73037C227.745185 718.506667 355.65037 596.385185 512 596.385185s284.254815 122.121481 293.357037 276.195556c0.568889 9.955556 8.912593 17.73037 18.962963 17.73037C835.318519 890.311111 843.946667 881.019259 843.282963 870.115556zM319.525926 364.088889c0-106.287407 86.186667-192.474074 192.474074-192.474074s192.474074 86.186667 192.474074 192.474074c0 106.287407-86.186667 192.474074-192.474074 192.474074S319.525926 470.376296 319.525926 364.088889z"  />
                 </svg>
+            </span>
+        </div>
+
+        <!-- User Nav -->
+
+        <div id="userSidenav" class="usersidenav">
+            <div class="user-side-nav-logo">
+                <div class="user-side-nav-1">
+                    <svg class="user-svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M843.282963 870.115556c-8.438519-140.515556-104.296296-257.422222-233.908148-297.14963C687.881481 536.272593 742.4 456.533333 742.4 364.088889c0-127.241481-103.158519-230.4-230.4-230.4S281.6 236.847407 281.6 364.088889c0 92.444444 54.518519 172.183704 133.12 208.877037-129.611852 39.727407-225.46963 156.634074-233.908148 297.14963-0.663704 10.903704 7.964444 20.195556 18.962963 20.195556l0 0c9.955556 0 18.299259-7.774815 18.962963-17.73037C227.745185 718.506667 355.65037 596.385185 512 596.385185s284.254815 122.121481 293.357037 276.195556c0.568889 9.955556 8.912593 17.73037 18.962963 17.73037C835.318519 890.311111 843.946667 881.019259 843.282963 870.115556zM319.525926 364.088889c0-106.287407 86.186667-192.474074 192.474074-192.474074s192.474074 86.186667 192.474074 192.474074c0 106.287407-86.186667 192.474074-192.474074 192.474074S319.525926 470.376296 319.525926 364.088889z"  />
+                    </svg>
+                    <div class="username">
+                        <span class="fname">{{ fname }}&nbsp;{{ lname }}</span>
+                        <span class="usern">@{{ username }}</span>
+                    </div>
+                </div>
+                <div class="user-side-nav-2">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeUser()"></a>
+                </div>
             </div>
+            <div class="user-divider"></div>
+            <a href="#">Account Settings</a>
+            <a href="#">View Profile</a>
+            <div class="user-divider"></div>
+            <a href="#">Help</a>
+            <a href="#">Feedback</a>
+            <div class="user-divider"></div>
+            <a href="/signout">Sign Out</a>
+        </div>
+        
+        <!-- End User Nav -->
+    </div>
+
+    <div class="page-hero" id="page-hero">
+        <div class="image">
+          <div class="image-container">
+            <img src="https://myinnovation.accenture.com/violet_bg.1f2582a7fee390eb70f6.png" class="banner">
+          </div>
+        </div>
+        <div class="container">
+          <h2>Open Demands</h2>
         </div>
     </div>
     <!--<h3>Welcome to Aapurti</h3>
-
-
-    <h3>Hello {{ fname }}!</h3>
+    <h3>Hello {{ fname }}!</h3>	https://myinnovation.accenture.com/violet_bg.1f2582a7fee390eb70f6.png
     <h4>You have successfully logged in.</h4>-->
     <main>
-        <div class="job-cont">
-            <p class="job-head">
-                <h3 class="job-list">Open Demands</h3>
-            </p>
-        </div>
         <section class="header-table">
             <div class="items-controller">
                 <h5><b>Show</b></h5>
@@ -82,14 +114,24 @@
                 <input type="text" name="" id="search" placeholder="search">
             </div>
         </section>
-
+        
         <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Clients</a>
-            <a href="#">Contact</a>
-          </div>
+            <div class="side-nav-logo">
+                <div class="side-nav-1">
+                    <a href="{% url 'home' %}" data-raofz="14" role="link" style="font-size: 16px;">
+                        <img tabindex="-1" aria-label="Links to portal.accenture.com (opens new tab)" src="{% static 'Acc_Logo_White_Purple_RGB.png' %}" alt="Accenture Logo" id="acc-logo">
+                    </a>
+                </div>
+                <div class="side-nav-2">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                </div>
+            </div>
+            
+            <a href="#" class="nav-content">New Demands</a>
+            <a href="#" class="nav-content">Vendors</a>
+            <a href="#" class="nav-content">Clients</a>
+            <a href="#" class="nav-content">Contact</a>
+        </div>
 
         <section class="field">
             <div class="jobs-desc">
@@ -116,8 +158,8 @@
                 <tbody>
                     {% for a in JobDetailsData %}
                     <tr>
-                        <form action="/fbPost" method="post">
-                            {% csrf_token %}
+                        <form action="/fbPost/{{ name }}" method="post">
+                        {% csrf_token %}
                             <td>{{ a.jobid }}</td> <!--{% if player.player_check %} checked{% endif %}-->
                             <td>{{ a.primary_skill }}</td>
                             <td>{{ a.level }}</td> <!---name="{{ a.filled }}" value="False"-->
@@ -153,7 +195,7 @@
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             </div>
                                             <div class="modal-body">
-                                                <textarea id="Description" name="Description" class="desc-text">Primary Skill: {{ a.primary_skill }}&#13;&#10;&#13;&#10;Employee Level: {{ a.level }}&#13;&#10;&#13;&#10;Description: {{ a.description }}&#13;&#10;&#13;&#10;Location: {{ a.location }}&#13;&#10;&#13;&#10;Click this link and Signup: http://localhost:8080/vendorsignin
+                                                <textarea id="Description" name="Description" class="desc-text">Primary Skill: {{ a.primary_skill }}&#13;&#10;&#13;&#10;Employee Level: {{ a.level }}&#13;&#10;&#13;&#10;Description: {{ a.description }}&#13;&#10;&#13;&#10;Location: {{ a.location }}&#13;&#10;&#13;&#10;Click this link and Signup: http://localhost:8080/
                                                 </textarea>
                                                 <input type="text">
                                             </div>
@@ -190,6 +232,17 @@
                 </ul>
             </div>
         </section>
+
+        <div class="cont-footer" id="main-footer">
+            <footer class="rootfooter" role="contentinfo">
+              <span class="foo-span">
+              </span>
+              <div class="copyright" title="© 2023 Aapurti - Portal, Inc. All rights reserved.">
+                © 2023 Aapurti - Portal, Inc. All rights reserved.
+              </div>
+              <span class="foo-last"></span>
+            </footer>
+          </div>
     </main>
 
     <script src="{% static 'Social_post.js' %}"></script>

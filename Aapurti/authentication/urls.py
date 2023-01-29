@@ -22,10 +22,10 @@ urlpatterns = [
     path('signup', views.signup, name="signup"),
     path('signin', views.signin, name="signin"),
     path('signout', views.signout, name="signout"),
-    path('fbPost', views.fbPost, name="fbPost"),
-    path('main', views.main, name="main"),  
+    path('fbPost/<str:name>', views.fbPost, name="fbPost"),
+    path('main/<str:name>', views.main, name="main"),  
     path('fb-post1', views.fb_post1, name="fb-post1"),
     path('vendorsignin', views.vendorsignin, name="vendorsignin"),
-    path('vendor', views.vendor, name="vendor"),
+    path('vendor/<str:name>/', views.vendor, name="vendor"),
 
 ]
