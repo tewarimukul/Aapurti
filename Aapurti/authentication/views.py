@@ -159,7 +159,7 @@ def fbPost(request, name):
         api_description = request.POST['Description']
         #return HttpResponse(api_description)
         if api_req == "on" and api_project == "Facebook":
-            access_token = "EAAM6XmDmYZCgBAAORhZBXzKNlhMFdyTLadB4IeNmZCv2Iyroj4kbJZCqlz2rT75g8OZB4ZCH6cWZC8elj4ZAtop811k52cMdF6fEiBXQoeh9fJbAPoxnHXT5n5s7IELG9DtjsPOzYEBDQMDIqQVbbnZB8xxbtyZC83cah5aIEnhDRq72JPkigojZCvyPaybpQR01FQZD"
+            access_token = "EAAM6XmDmYZCgBAKTlDXlfJWVVp31cfhEaJjeuVhna0UmXUzII2jVme3dw0SQDuOT1pGZBuN78PZCFZBbY7VEJPnOZAUu3ZApJQd7g4nQTB2rA3EwMz5ZBctpyZCGrCuZAM1mnPVj4VvDdyckpmV9fgzlt0Dmi40sPZCas92j2zAi7kYIWyJTKPIWt91UOYJZC2yvkXRjcfWAyaUqiaOPVkz9aI3"
             myobject = fb.GraphAPI(access_token)
             myobject.put_object("me", "feed", message=api_description)
             messages.success(request, 'Post Successful !!!')

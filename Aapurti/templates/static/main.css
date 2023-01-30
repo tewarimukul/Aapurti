@@ -215,6 +215,18 @@ table tr:last-child td:last-child {
   }
 }
 
+.modal-body label {
+  margin-top: 20px;
+  float: left;
+  margin-left: 5px
+}
+
+.hash-tag {
+  width: 720px;
+  height: 50px;
+  padding: 10px;
+}
+
 .desc-text {
   height: 313px;
   width: 100%;

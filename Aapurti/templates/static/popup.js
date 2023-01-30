@@ -29,9 +29,9 @@ document.getElementById('main-body').onclick = function(e) {
     style = window.getComputedStyle(element),
     width = style.getPropertyValue('width'),
     height = style.getPropertyValue('height');
-    console.log("Inside Event" + width);
+    //console.log("Inside Event" + width);
     if(width !== '0px') {
-      console.log("Inside IF");
+      //console.log("Inside IF");
       closeNav();
     }
 
@@ -39,9 +39,9 @@ document.getElementById('main-body').onclick = function(e) {
     style = window.getComputedStyle(element),
     width = style.getPropertyValue('width'),
     height = style.getPropertyValue('height');
-    console.log("Inside Event" + width);
+    //console.log("Inside Event" + width);
     if(width !== '0px') {
-      console.log("Inside IF");
+      //console.log("Inside IF");
       closeUser();
     }
 }
