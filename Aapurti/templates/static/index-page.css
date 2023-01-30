@@ -363,10 +363,11 @@ span {
 }*/
 
 .info-a-ct {
-    font-size: 15px !important;
+    font-size: 17px !important;
     text-decoration: none;
     color: white;
     transition: 0.4s;
+    font-weight: bolder;
 }
 
 /*.info-btn:hover span {
