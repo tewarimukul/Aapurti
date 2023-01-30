@@ -1,6 +1,7 @@
 from django.db import models
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -20,4 +21,15 @@ class JobDetails(models.Model):
     type = models.CharField(choices=POST_TYPE, max_length=10)
     Approval = models.BooleanField(default=False)
 
-    
+class Vendor(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    isVendor = models.BooleanField(default=False)
+    birthday = models.DateField()
+    Gender = models.CharField(
+        max_length=6,
+        choices=[('MALE', 'MALE'),('FEMALE', 'FEMALE')]
+    )
+    phone = models.CharField(max_length=10)
+
+def __str__(self):
+    return self.user.username

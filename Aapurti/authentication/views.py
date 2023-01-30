@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 import facebook as fb
 import logging
 from .models import JobDetails
+from .models import Vendor
 from urllib3.exceptions import InsecureRequestWarning
 from urllib3 import disable_warnings
 from cryptography.fernet import Fernet
@@ -69,7 +70,9 @@ def signup(request):
         myuser.first_name = fname
         myuser.last_name = lname
 
+        #myvendor = Vendor()
         myuser.save()
+        
 
         messages.success(request, 'Your Account has been created successfully')
 
