@@ -52,7 +52,6 @@
 </head>
 
 <body id="main-body">
-
     <div class="header">
         <div class="side-nav">
             <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
@@ -142,7 +141,6 @@
             </div>
         </div>
 
-
         <div class="modal fade" id="modal_vendor" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -151,44 +149,55 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <form action="/vendor/{{ name }}" method="post">
-                            {% csrf_token %}
-                            <input type="text" class="form-control" id="Job Details" , name="Job Details"
-                                placeholder="Job Details" required>
+                        <form action="/candidate" method="post">
+                                {% csrf_token %}
+                            <input type="text" style="display:none;" id="enc_name" name="enc_name" value="{{ name }}" >
+                            <input type="text" class="form-control" id="Job Details" name="Job Details" placeholder="Job Details" >
                             <label for="floatingInput">Job Details</label>
                             <br>
                             <br>
-                            <input type="text" class="form-control" id="Candidate Name" , name="Candidate Name"
-                                placeholder="Candidate Name" required>
+                            <input type="text" class="form-control" id="Candidate Name"  name="Candidate Name"
+                                placeholder="Candidate Name" >
                             <label for="floatingInput">Candidate Name<Address></Address></label>
                             <br>
-                            <input type="text" class="form-control" id="PAN Card" , name="PAN Card"
-                                placeholder="PAN Card" required>
+                            <input type="text" class="form-control" id="PAN Card"  name="PAN Card"
+                                placeholder="PAN Card" >
                             <label for="floatingInput">PAN Card<Address></Address></label>
                             <br>
-                            <input type="text" class="form-control" id="Phone Number" , name="Phone Number"
-                                placeholder="Phone Number" required>
+                            <input type="text" class="form-control" id="Phone Number"  name="Phone Number"
+                                placeholder="Phone Number" >
                             <label for="floatingInput">Phone Number<Address></Address></label>
                             <br>
-                            <input type="file" class="form-control" id="Upload Resume" , name="Upload Resume"
-                                placeholder="Upload Resume" required>
+                            <input type="file" class="form-control" id="Upload Resume"  name="Upload Resume"
+                                placeholder="Upload Resume" >
                             <label for="floatingInput">Upload Resume</label>
                             <br>
                             <br>
-
+                            <div class="modal-footer">
+                                <div class="modal-btns">
+                                    <button type="submit" class="mo-btn btn btn-info btn-lg btn-val">Submit</button>
+                                    <button type="button" class="btn btn-default btn-close" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <div class="modal-btns">
-                            <button type="submit" class="mo-btn btn btn-info btn-lg btn-val">Validate</button>
-                            <button type="button" class="btn btn-default btn-close" data-dismiss="modal">Close</button>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
     </section>
+    <div>
+        {% for message in messages %}
+        <div class="msg" role="alert">
+          <strong style="color:black">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+              class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+              <path
+                d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+            </svg>{{ message }}</strong>
+        </div>
+        {% endfor %}
     <div class="cont-footer" id="main-footer">
         <footer class="rootfooter" role="contentinfo">
             <span class="foo-span">
@@ -201,6 +210,9 @@
     </div>
     <script src="{% static 'Social_post.js' %}"></script>
     <script src="{% static 'popup.js' %}"></script>
+
+    
 </body>
+
 
 </html>

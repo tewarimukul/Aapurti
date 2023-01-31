@@ -13,15 +13,19 @@ from urllib3 import disable_warnings
 from cryptography.fernet import Fernet
 from django.contrib.auth.hashers import make_password
 import base64
+from .models import candidatedetails
 
 logging.basicConfig(level=logging.INFO)
 
-#Encrypt URL
+# Encrypt URL
+
+
 def encrypt_name(name):
     encname = name.encode("ascii")
     encname = base64.b64encode(encname)
     encname = encname.decode("ascii")
     return encname
+
 
 def decrypt_name(name):
     decname = name.encode('ascii')
@@ -30,6 +34,7 @@ def decrypt_name(name):
     return decname
 
 # Create your views here.
+
 
 def home(request):
     return render(request, "authentication/index.html")
@@ -70,9 +75,8 @@ def signup(request):
         myuser.first_name = fname
         myuser.last_name = lname
 
-        #myvendor = Vendor()
+        # myvendor = Vendor()
         myuser.save()
-        
 
         messages.success(request, 'Your Account has been created successfully')
 
@@ -130,8 +134,8 @@ def signin(request):
         if user is not None:
             login(request, user)
 
-            #return render(request, "authentication/main.html", {fname:fname})
-            #return render(request, "authentication/main.html", {"fname":fname}, JobDetailsData)
+            # return render(request, "authentication/main.html", {fname:fname})
+            # return render(request, "authentication/main.html", {"fname":fname}, JobDetailsData)
             return redirect('/main/' + str(name), name=name)
             # return main(request, {"fname":fname})
 
@@ -157,14 +161,14 @@ def fbPost(request, name):
         api_req = request.POST['Approval']
         api_project = request.POST['social']
         api_description = request.POST['Description']
-        #return HttpResponse(api_description)
+        # return HttpResponse(api_description)
         if api_req == "on" and api_project == "Facebook":
             access_token = "EAAM6XmDmYZCgBAAORhZBXzKNlhMFdyTLadB4IeNmZCv2Iyroj4kbJZCqlz2rT75g8OZB4ZCH6cWZC8elj4ZAtop811k52cMdF6fEiBXQoeh9fJbAPoxnHXT5n5s7IELG9DtjsPOzYEBDQMDIqQVbbnZB8xxbtyZC83cah5aIEnhDRq72JPkigojZCvyPaybpQR01FQZD"
             myobject = fb.GraphAPI(access_token)
             myobject.put_object("me", "feed", message=api_description)
             messages.success(request, 'Post Successful !!!')
             return redirect('main', name=name)
-            #return render(request, "authentication/fb-post1.html")
+            # return render(request, "authentication/fb-post1.html")
 
         else:
             messages.error(request, 'Select valid Posting page')
@@ -201,8 +205,8 @@ def vendorsignin(request):
             name = fname_enc + "+" + lname_enc + "+" + usern
 
             return redirect('/vendor/' + str(name), name=name)
-            #return render(request, "authentication/vendor.html", {"fname":fname})
-            #return redirect('/main')
+            # return render(request, "authentication/vendor.html", {"fname":fname})
+            # return redirect('/main')
             # return main(request, {"fname":fname})
 
         else:
@@ -212,7 +216,6 @@ def vendorsignin(request):
             return redirect('/vendorsignin')
     else:
         return render(request, "authentication/vendorsignin.html")
-
 
 
 def vendor(request, name):
@@ -227,3 +230,31 @@ def vendor(request, name):
         'username': usern,
     }
     return render(request, "authentication/vendor.html", data)
+
+
+def candidate(request):
+
+    if request.method == "POST":
+        jobdetails = request.POST['Job Details']
+        candidatename = request.POST['Candidate Name']
+        pancard = request.POST['PAN Card']
+        phonenumber = request.POST['Phone Number']
+        name = request.POST['enc_name']
+
+        fstname = decrypt_name(name.split("+")[0])
+        lstname = decrypt_name(name.split("+")[1])
+        usern = decrypt_name(name.split("+")[2])
+
+        data = {
+            'name': name,
+            'fname': fstname.title(),
+            'lname': lstname.title(),
+            'username': usern,
+            }
+        
+        candidate= candidatedetails(jobid= jobdetails,candidatename= candidatename,pancard= pancard,phone= phonenumber,user=usern)
+        candidate.save()
+        
+        messages.success(request, 'Profile Save Successful !!!')
+        
+        return render(request, "authentication/vendor.html", data)

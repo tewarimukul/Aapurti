@@ -33,3 +33,15 @@ class Vendor(models.Model):
 
 def __str__(self):
     return self.user.username
+
+class candidatedetails(models.Model):
+    jobid = models.IntegerField()
+    user = models.CharField(default="User", max_length=20)
+    created_at = models.DateTimeField(default=timezone.now)
+    candidatename = models.CharField(max_length=100)
+    pancard = models.CharField(max_length=20)
+    phone = models.IntegerField()
+    
+    
+    
+    
