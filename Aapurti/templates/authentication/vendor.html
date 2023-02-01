@@ -51,8 +51,7 @@
 
 </head>
 
-<body>
-
+<body id="main-body">
     <div class="header">
         <div class="side-nav">
             <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
@@ -76,6 +75,35 @@
                 </svg>
             </span>
         </div>
+
+        <!-- User Nav -->
+
+        <div id="userSidenav" class="usersidenav">
+            <div class="user-side-nav-logo">
+                <div class="user-side-nav-1">
+                    <svg class="user-svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M843.282963 870.115556c-8.438519-140.515556-104.296296-257.422222-233.908148-297.14963C687.881481 536.272593 742.4 456.533333 742.4 364.088889c0-127.241481-103.158519-230.4-230.4-230.4S281.6 236.847407 281.6 364.088889c0 92.444444 54.518519 172.183704 133.12 208.877037-129.611852 39.727407-225.46963 156.634074-233.908148 297.14963-0.663704 10.903704 7.964444 20.195556 18.962963 20.195556l0 0c9.955556 0 18.299259-7.774815 18.962963-17.73037C227.745185 718.506667 355.65037 596.385185 512 596.385185s284.254815 122.121481 293.357037 276.195556c0.568889 9.955556 8.912593 17.73037 18.962963 17.73037C835.318519 890.311111 843.946667 881.019259 843.282963 870.115556zM319.525926 364.088889c0-106.287407 86.186667-192.474074 192.474074-192.474074s192.474074 86.186667 192.474074 192.474074c0 106.287407-86.186667 192.474074-192.474074 192.474074S319.525926 470.376296 319.525926 364.088889z"  />
+                    </svg>
+                    <div class="username">
+                        <span class="fname">{{ fname }}&nbsp;{{ lname }}</span>
+                        <span class="usern">@{{ username }}</span>
+                    </div>
+                </div>
+                <div class="user-side-nav-2">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeUser()"></a>
+                </div>
+            </div>
+            <div class="user-divider"></div>
+            <a href="#">Account Settings</a>
+            <a href="#">View Profile</a>
+            <div class="user-divider"></div>
+            <a href="#">Help</a>
+            <a href="#">Feedback</a>
+            <div class="user-divider"></div>
+            <a href="/signout">Sign Out</a>
+        </div>
+        
+        <!-- End User Nav -->
+
     </div>
 
     <div id="mySidenav" class="sidenav">
@@ -91,28 +119,53 @@
             </div>
         </div>
 
-        <a href="#">New Demands</a>
-        <a href="#">Vendors</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
+        <a href="#">Add Profiles</a>
+        <a href="#">View Profiles</a>
+        <a href="#">Candidates</a>
     </div>
-    <section class="vendor-form">
 
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title"><b>Add New Profile</b></h5>
-                <h6 class="card-subtitle mb-2 text-muted"><b>Job Description</b></h6>
-                <div class="card-sep"></div>
-                <p class="card-text">Add new candidate profiles. Use this portal to share new talents Profile and
-                    Utilize their Skills.</p>
-                <button type="button" class="mo-btn btn btn-info btn-lg" data-id="vendor" data-toggle="modal"
+    <div class="page-hero">
+        <div class="image">
+          <div class="image-container">
+            <img src="{% static 'VendorBanner.jpg' %}" class="banner">
+          </div>
+        </div>
+        <div class="container">
+          <h2>Hello, {{ fname }}&nbsp;{{ lname }}</h2>
+          <h2 id="dash">Dashboard</h2>
+        </div>
+      </div>
+
+    <section class="vendor-form">
+        <div class="dash">
+            <div class="card card-left" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><b>Add New Profile</b></h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><b>Job Description</b></h6>
+                    <div class="card-sep"></div>
+                    <p class="card-text">Add new candidate profiles. Use this portal to share new talents Profile and
+                        Utilize their Skills.</p>
+                    <button type="button" class="mo-btn btn btn-info btn-lg" data-id="vendor" data-toggle="modal"
+                        data-target="#modal_vendor" data-whatever="New Request">
+                        Add Profile
+                    </button>
+                    <!--<a href="#" class="card-link">Another link</a>-->
+                </div>
+            </div>
+            <div class="card card-right" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><b>View Profile</b></h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><b>View Description</b></h6>
+                    <div class="card-sep"></div>
+                    <p class="card-text">View the Profile submitted by you. And have a track on the profile status and edit if required.</p>
+                    <button type="button" class="mo-btn btn btn-info btn-lg" data-id="vendor" data-toggle="#"
                     data-target="#modal_vendor" data-whatever="New Request">
-                    Add Profile
-                </button>
+                    Show Profile
+                    </button>
                 <!--<a href="#" class="card-link">Another link</a>-->
+                </div>
             </div>
         </div>
-
 
         <div class="modal fade" id="modal_vendor" role="dialog">
             <div class="modal-dialog">
@@ -122,44 +175,78 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <form action="/vendor/{{ name }}" method="post">
-                            {% csrf_token %}
-                            <input type="text" class="form-control" id="Job Details" , name="Job Details"
-                                placeholder="Job Details" required>
+                        <form action="/candidate" method="post">
+                                {% csrf_token %}
+                            <input type="text" style="display:none;" id="enc_name" name="enc_name" value="{{ name }}" >
+                            <!--<input type="text" class="form-control" id="Job Details" name="Job Details" placeholder="Job Details" >-->
+                            
                             <label for="floatingInput">Job Details</label>
+                            <select name="Job Details" id="Job Details" class="job-select">
+                                <option value="Select Job" disabled selected>Select Job</option>
+                                <option value="Python">Python</option>
+                                <option value="Java">Java</option>
+                                <option value="AWS Cloud">AWS Cloud</option>
+                                <option value="DevOps">DevOps</option>
+                                <option value="Siebel">Siebel</option>
+                                <option value=".Net">.Net</option>
+                              </select>
+                        
                             <br>
                             <br>
-                            <input type="text" class="form-control" id="Candidate Name" , name="Candidate Name"
-                                placeholder="Candidate Name" required>
+                            <input type="text" class="form-control" id="Candidate Name"  name="Candidate Name"
+                                placeholder="Candidate Name" >
                             <label for="floatingInput">Candidate Name<Address></Address></label>
                             <br>
-                            <input type="text" class="form-control" id="PAN Card" , name="PAN Card"
-                                placeholder="PAN Card" required>
+                            <input type="text" class="form-control" id="PAN Card"  name="PAN Card"
+                                placeholder="PAN Card" >
                             <label for="floatingInput">PAN Card<Address></Address></label>
                             <br>
-                            <input type="text" class="form-control" id="Phone Number" , name="Phone Number"
-                                placeholder="Phone Number" required>
+                            <div class="inp-phone">
+                                <span id="inp-phone">+91</span>
+                            <input type="text" class="form-control" id="Phone Number"  name="Phone Number"
+                                placeholder="Phone Number" style="width: 94%;" >
+                            </div>
                             <label for="floatingInput">Phone Number<Address></Address></label>
                             <br>
-                            <input type="file" class="form-control" id="Upload Resume" , name="Upload Resume"
-                                placeholder="Upload Resume" required>
+                            <div class="inp-phone">
+                            <input type="text" class="form-control" id="Email"  name="Email"
+                                placeholder="Email Address" style="width: 50%;" >
+                                <span id="inp-phone" >@</span>
+                                <input type="text" class="form-control" id="Email_domain"  name="Email_domain"
+                                placeholder="Domain" style="width: 45%;">
+                            </div>
+                            <label for="floatingInput">Email Address<Address></Address></label>
+                            <br>
+                            <input type="file" class="form-control" id="Upload Resume"  name="Upload Resume"
+                                placeholder="Upload Resume" >
                             <label for="floatingInput">Upload Resume</label>
                             <br>
                             <br>
-
+                            <div class="modal-footer">
+                                <div class="modal-btns">
+                                    <button type="submit" class="mo-btn btn btn-info btn-lg btn-val">Submit</button>
+                                    <button type="button" class="btn btn-default btn-close" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <div class="modal-btns">
-                            <button type="submit" class="mo-btn btn btn-info btn-lg btn-val">Validate</button>
-                            <button type="button" class="btn btn-default btn-close" data-dismiss="modal">Close</button>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
     </section>
+    <div>
+        {% for message in messages %}
+        <div class="vendor-msg-{{ message.tags }}" role="alert">
+          <strong style="color:white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+              class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+              <path
+                d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+            </svg>{{ message }}</strong>
+        </div>
+        {% endfor %}
     <div class="cont-footer" id="main-footer">
         <footer class="rootfooter" role="contentinfo">
             <span class="foo-span">
@@ -172,6 +259,9 @@
     </div>
     <script src="{% static 'Social_post.js' %}"></script>
     <script src="{% static 'popup.js' %}"></script>
+
+    
 </body>
+
 
 </html>

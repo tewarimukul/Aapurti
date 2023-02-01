@@ -6,7 +6,10 @@ var emptyBox = [];
 var index = 1;
 var itemPerPage = 8;
 
-for (let i = 0; i < tr.length; i++) { emptyBox.push(tr[i]); }
+for (let i = 0; i < tr.length; i++) { 
+	//var trow = document.getElementsByTagName('')
+	emptyBox.push(tr[i]); 
+}
 
 itemShow.onchange = giveTrPerPage;
 function giveTrPerPage() {
@@ -105,15 +108,26 @@ function pageMaker(index, item_per_page, activePage) {
 
 
 // search content 
-var search = document.getElementById("search");
-search.onkeyup = e => {
-	const text = e.target.value;
+
+function searchJob() {
+	var search = document.getElementById("search");
+	//search.onkeyup = e => {
+	//const text = e.target.value;
+	const text = search.value.toLowerCase();
+	//console.log(text);
 	for (let i = 0; i < tr.length; i++) {
-		const matchText = tr[i].querySelectorAll("td")[2].innerText;
-		if (matchText.toLowerCase().indexOf(text.toLowerCase()) > -1) {
-			tr[i].style.visibility = "visible";
+		const jobidmatch = tr[i].querySelectorAll("td")[0].innerText;
+		const matchText = tr[i].querySelectorAll("td")[1].innerText;
+		const matchLevel = tr[i].querySelectorAll("td")[2].innerText;
+		const matchProject = tr[i].querySelectorAll("td")[3].innerText;
+		const matchLocation = tr[i].querySelectorAll("td")[4].innerText;
+		//console.log("matchText :" + matchText);
+		if (jobidmatch.toLowerCase().indexOf(text.toLowerCase()) > -1 || matchText.toLowerCase().indexOf(text.toLowerCase()) > -1 || matchLevel.toLowerCase().indexOf(text.toLowerCase()) > -1 || matchProject.toLowerCase().indexOf(text.toLowerCase()) > -1 || matchLocation.toLowerCase().indexOf(text.toLowerCase()) > -1) {
+			tr[i].style.transition = "0.3s"
+			tr[i].style.display = "";
 		} else {
-			tr[i].style.visibility = "collapse";
+			tr[i].style.transition = "0.3s"
+			tr[i].style.display = "none";
 		}
 	}
 }

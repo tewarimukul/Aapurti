@@ -27,5 +27,6 @@ urlpatterns = [
     path('fb-post1', views.fb_post1, name="fb-post1"),
     path('vendorsignin', views.vendorsignin, name="vendorsignin"),
     path('vendor/<str:name>/', views.vendor, name="vendor"),
+    path('candidate', views.candidate, name="candidate"),
 
 ]
