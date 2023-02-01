@@ -157,13 +157,12 @@ def fbPost(request, name):
 
     disable_warnings(InsecureRequestWarning)
     if request.method == "POST":
-
         api_req = request.POST['Approval']
         api_project = request.POST['social']
         api_description = request.POST['Description']
         # return HttpResponse(api_description)
         if api_req == "on" and api_project == "Facebook":
-            access_token = "EAAM6XmDmYZCgBAAORhZBXzKNlhMFdyTLadB4IeNmZCv2Iyroj4kbJZCqlz2rT75g8OZB4ZCH6cWZC8elj4ZAtop811k52cMdF6fEiBXQoeh9fJbAPoxnHXT5n5s7IELG9DtjsPOzYEBDQMDIqQVbbnZB8xxbtyZC83cah5aIEnhDRq72JPkigojZCvyPaybpQR01FQZD"
+            access_token = "EAAM6XmDmYZCgBAI1UZBmvrhz8b0nxwt6Xv0LhnaS3bNckn3ZAqWTZCLwwW9O3IHTKAPzYyYycc0rrXOFqytrkvD8xy8pFBIeohJIXRZBBaSjZCuENyIUNZCZA9m0j9IiaAztR4bG57mljgNMwaakFP1nbH5ybSFXmzR1tNTZCOYEdLTwGzGZC2x8A9h8RmZCOJDVC4ZD"
             myobject = fb.GraphAPI(access_token)
             myobject.put_object("me", "feed", message=api_description)
             messages.success(request, 'Post Successful !!!')
@@ -234,12 +233,18 @@ def vendor(request, name):
 
 def candidate(request):
 
+    messages.success(request, '')
+    messages.error(request, '')
     if request.method == "POST":
         jobdetails = request.POST['Job Details']
         candidatename = request.POST['Candidate Name']
         pancard = request.POST['PAN Card']
         phonenumber = request.POST['Phone Number']
         name = request.POST['enc_name']
+        emailadd = request.POST['Email']
+        emailDomain = request.POST['Email_domain']
+
+        email = emailadd + "@" + emailDomain
 
         fstname = decrypt_name(name.split("+")[0])
         lstname = decrypt_name(name.split("+")[1])
@@ -252,9 +257,9 @@ def candidate(request):
             'username': usern,
             }
         
-        candidate= candidatedetails(jobid= jobdetails,candidatename= candidatename,pancard= pancard,phone= phonenumber,user=usern)
+        candidate= candidatedetails(jobid= jobdetails,candidatename= candidatename,pancard= pancard,phone= phonenumber,user=usern, candEmail=email)
         candidate.save()
         
         messages.success(request, 'Profile Save Successful !!!')
-        
-        return render(request, "authentication/vendor.html", data)
+        return redirect('vendor', name=name)
+        #return render(request, "authentication/vendor.html", data)

@@ -119,25 +119,51 @@
             </div>
         </div>
 
-        <a href="#">New Demands</a>
-        <a href="#">Vendors</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
+        <a href="#">Add Profiles</a>
+        <a href="#">View Profiles</a>
+        <a href="#">Candidates</a>
     </div>
-    <section class="vendor-form">
 
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title"><b>Add New Profile</b></h5>
-                <h6 class="card-subtitle mb-2 text-muted"><b>Job Description</b></h6>
-                <div class="card-sep"></div>
-                <p class="card-text">Add new candidate profiles. Use this portal to share new talents Profile and
-                    Utilize their Skills.</p>
-                <button type="button" class="mo-btn btn btn-info btn-lg" data-id="vendor" data-toggle="modal"
+    <div class="page-hero">
+        <div class="image">
+          <div class="image-container">
+            <img src="{% static 'VendorBanner.jpg' %}" class="banner">
+          </div>
+        </div>
+        <div class="container">
+          <h2>Hello, {{ fname }}&nbsp;{{ lname }}</h2>
+          <h2 id="dash">Dashboard</h2>
+        </div>
+      </div>
+
+    <section class="vendor-form">
+        <div class="dash">
+            <div class="card card-left" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><b>Add New Profile</b></h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><b>Job Description</b></h6>
+                    <div class="card-sep"></div>
+                    <p class="card-text">Add new candidate profiles. Use this portal to share new talents Profile and
+                        Utilize their Skills.</p>
+                    <button type="button" class="mo-btn btn btn-info btn-lg" data-id="vendor" data-toggle="modal"
+                        data-target="#modal_vendor" data-whatever="New Request">
+                        Add Profile
+                    </button>
+                    <!--<a href="#" class="card-link">Another link</a>-->
+                </div>
+            </div>
+            <div class="card card-right" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><b>View Profile</b></h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><b>View Description</b></h6>
+                    <div class="card-sep"></div>
+                    <p class="card-text">View the Profile submitted by you. And have a track on the profile status and edit if required.</p>
+                    <button type="button" class="mo-btn btn btn-info btn-lg" data-id="vendor" data-toggle="#"
                     data-target="#modal_vendor" data-whatever="New Request">
-                    Add Profile
-                </button>
+                    Show Profile
+                    </button>
                 <!--<a href="#" class="card-link">Another link</a>-->
+                </div>
             </div>
         </div>
 
@@ -152,8 +178,19 @@
                         <form action="/candidate" method="post">
                                 {% csrf_token %}
                             <input type="text" style="display:none;" id="enc_name" name="enc_name" value="{{ name }}" >
-                            <input type="text" class="form-control" id="Job Details" name="Job Details" placeholder="Job Details" >
+                            <!--<input type="text" class="form-control" id="Job Details" name="Job Details" placeholder="Job Details" >-->
+                            
                             <label for="floatingInput">Job Details</label>
+                            <select name="Job Details" id="Job Details" class="job-select">
+                                <option value="Select Job" disabled selected>Select Job</option>
+                                <option value="Python">Python</option>
+                                <option value="Java">Java</option>
+                                <option value="AWS Cloud">AWS Cloud</option>
+                                <option value="DevOps">DevOps</option>
+                                <option value="Siebel">Siebel</option>
+                                <option value=".Net">.Net</option>
+                              </select>
+                        
                             <br>
                             <br>
                             <input type="text" class="form-control" id="Candidate Name"  name="Candidate Name"
@@ -164,9 +201,21 @@
                                 placeholder="PAN Card" >
                             <label for="floatingInput">PAN Card<Address></Address></label>
                             <br>
+                            <div class="inp-phone">
+                                <span id="inp-phone">+91</span>
                             <input type="text" class="form-control" id="Phone Number"  name="Phone Number"
-                                placeholder="Phone Number" >
+                                placeholder="Phone Number" style="width: 94%;" >
+                            </div>
                             <label for="floatingInput">Phone Number<Address></Address></label>
+                            <br>
+                            <div class="inp-phone">
+                            <input type="text" class="form-control" id="Email"  name="Email"
+                                placeholder="Email Address" style="width: 50%;" >
+                                <span id="inp-phone" >@</span>
+                                <input type="text" class="form-control" id="Email_domain"  name="Email_domain"
+                                placeholder="Domain" style="width: 45%;">
+                            </div>
+                            <label for="floatingInput">Email Address<Address></Address></label>
                             <br>
                             <input type="file" class="form-control" id="Upload Resume"  name="Upload Resume"
                                 placeholder="Upload Resume" >
@@ -188,8 +237,8 @@
     </section>
     <div>
         {% for message in messages %}
-        <div class="msg" role="alert">
-          <strong style="color:black">
+        <div class="vendor-msg-{{ message.tags }}" role="alert">
+          <strong style="color:white">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
               class="bi bi-exclamation-circle" viewBox="0 0 16 16">
               <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
