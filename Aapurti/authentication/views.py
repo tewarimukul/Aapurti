@@ -80,7 +80,7 @@ def signup(request):
 
         messages.success(request, 'Your Account has been created successfully')
 
-        return redirect('signin')
+        return redirect('vendorsignin')
 
     return render(request, "authentication/signup.html")
 
@@ -159,10 +159,14 @@ def fbPost(request, name):
     if request.method == "POST":
         api_req = request.POST['Approval']
         api_project = request.POST['social']
-        api_description = request.POST['Description']
+        description_tmp = request.POST['Description']
+        hashTag = request.POST['hash_tag']
+
+        api_description = description_tmp + "\n\n" + hashTag
+
         # return HttpResponse(api_description)
         if api_req == "on" and api_project == "Facebook":
-            access_token = "EAAM6XmDmYZCgBAI1UZBmvrhz8b0nxwt6Xv0LhnaS3bNckn3ZAqWTZCLwwW9O3IHTKAPzYyYycc0rrXOFqytrkvD8xy8pFBIeohJIXRZBBaSjZCuENyIUNZCZA9m0j9IiaAztR4bG57mljgNMwaakFP1nbH5ybSFXmzR1tNTZCOYEdLTwGzGZC2x8A9h8RmZCOJDVC4ZD"
+            access_token = ""
             myobject = fb.GraphAPI(access_token)
             myobject.put_object("me", "feed", message=api_description)
             messages.success(request, 'Post Successful !!!')
@@ -239,7 +243,9 @@ def candidate(request):
         jobdetails = request.POST['Job Details']
         candidatename = request.POST['Candidate Name']
         pancard = request.POST['PAN Card']
+        aadhar = request.POST['Aadhar Card']
         phonenumber = request.POST['Phone Number']
+        gender = request.POST['Gender']
         name = request.POST['enc_name']
         emailadd = request.POST['Email']
         emailDomain = request.POST['Email_domain']
@@ -255,11 +261,28 @@ def candidate(request):
             'fname': fstname.title(),
             'lname': lstname.title(),
             'username': usern,
-            }
-        
-        candidate= candidatedetails(jobid= jobdetails,candidatename= candidatename,pancard= pancard,phone= phonenumber,user=usern, candEmail=email)
+        }
+
+        candidate = candidatedetails(jobid=jobdetails,Gender=gender, candidatename=candidatename,
+                                     pancard=pancard, phone=phonenumber, user=usern, candEmail=email, aadhar=aadhar)
         candidate.save()
-        
+
         messages.success(request, 'Profile Save Successful !!!')
         return redirect('vendor', name=name)
-        #return render(request, "authentication/vendor.html", data)
+        # return render(request, "authentication/vendor.html", data)
+
+
+def candidatestatus(request, name):
+    abc = candidatedetails.objects.all()
+    fstname = decrypt_name(name.split("+")[0])
+    lstname = decrypt_name(name.split("+")[1])
+    usern = decrypt_name(name.split("+")[2])
+
+    data = {
+        'name': name,
+        'fname': fstname.title(),
+        'lname': lstname.title(),
+        'username': usern,
+        'candidatedetails': abc
+        }
+    return render(request, "authentication/candidatestatus.html", data)

@@ -124,12 +124,13 @@ table tr:last-child td:last-child {
   border-width: 1px;
 }
 
-.mo-btn:hover {
+.mo-btn:hover, .card-sep a:hover {
   background-color: #fff !important;
   border-color: #a100ff !important;
   color: #a100ff !important;
   font-weight: bolder;
   border-width: 1px;
+  text-decoration: none;
 }
 
 .btn.disabled,
@@ -331,6 +332,15 @@ body {
   background-color: #ddd;
 }
 */
+
+.card-sep a, .show_prof{
+  text-decoration: none;
+  color: white;
+}
+
+.show_prof:before {
+  color: white;
+}
 
 .inp-phone {
   position: relative;

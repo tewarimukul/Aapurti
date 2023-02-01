@@ -28,5 +28,6 @@ urlpatterns = [
     path('vendorsignin', views.vendorsignin, name="vendorsignin"),
     path('vendor/<str:name>/', views.vendor, name="vendor"),
     path('candidate', views.candidate, name="candidate"),
+    path('candidatestatus/<str:name>/', views.candidatestatus, name="candidatestatus"),
 
 ]

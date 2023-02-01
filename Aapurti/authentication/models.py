@@ -37,10 +37,16 @@ def __str__(self):
 class candidatedetails(models.Model):
     jobid = models.CharField(max_length=20)
     user = models.CharField(default="User", max_length=20)
+    Gender = models.CharField(
+        default="",
+        max_length=6,
+        choices=[('MALE', 'MALE'),('FEMALE', 'FEMALE')]
+    )
     created_at = models.DateTimeField(default=timezone.now)
     candidatename = models.CharField(max_length=100)
     candEmail = models.CharField(default="", max_length=30)
     pancard = models.CharField(max_length=20)
+    aadhar = models.CharField(default="", max_length=16)
     phone = models.IntegerField()
     
     
