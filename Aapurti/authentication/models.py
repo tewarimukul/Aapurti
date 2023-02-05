@@ -11,10 +11,11 @@ POST_TYPE = (
 )
 
 class JobDetails(models.Model):
-    jobid = models.IntegerField()
+    jobid = models.CharField(default="", max_length=10)
     created_at = models.DateTimeField(default=timezone.now)
     primary_skill = models.CharField(max_length=100)
     level=models.IntegerField()
+    lvl_desc=models.CharField(default="", max_length=50)
     project=models.CharField(max_length=100)
     location=models.CharField(max_length=100)
     description = models.TextField()
@@ -30,6 +31,7 @@ class Vendor(models.Model):
         choices=[('MALE', 'MALE'),('FEMALE', 'FEMALE')]
     )
     phone = models.CharField(max_length=10)
+    isApproved = models.BooleanField(default=False)
 
 def __str__(self):
     return self.user.username
@@ -37,10 +39,16 @@ def __str__(self):
 class candidatedetails(models.Model):
     jobid = models.CharField(max_length=20)
     user = models.CharField(default="User", max_length=20)
+    Gender = models.CharField(
+        default="",
+        max_length=6,
+        choices=[('MALE', 'MALE'),('FEMALE', 'FEMALE')]
+    )
     created_at = models.DateTimeField(default=timezone.now)
     candidatename = models.CharField(max_length=100)
     candEmail = models.CharField(default="", max_length=30)
     pancard = models.CharField(max_length=20)
+    aadhar = models.CharField(default="", max_length=16)
     phone = models.IntegerField()
     
     

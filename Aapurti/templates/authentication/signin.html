@@ -36,7 +36,9 @@
 
   <main class="form-signin w-100 m-auto">
     <div class="header">
-      <a href="{% url 'home' %}" class="logo">Aapurti Portal</a>
+      <a href="{% url 'home' %}" class="logo">
+        <img src="{%  static 'Aapurti_Logo.png' %}" class="main_logo">
+      </a>
       <div class="header-right">
         <a class="active" href="{% url 'home' %}">Home</a>
         <a href="#contact">Contact</a>
@@ -48,74 +50,74 @@
         <div class="banner">
           <div class="banner-1">
             <div class="fbanner">
-      <div class="b-example-divider"></div>
-      <div class="main-banner">
+              <div class="b-example-divider"></div>
+              <div class="main-banner">
 
-        <div class="page-hero">
-          <div class="image">
-            <div class="image-container">
-              <img src="{% static 'Acc_Banner_Logo.jpg' %}" class="banner">
+                <div class="page-hero">
+                  <div class="image">
+                    <div class="image-container">
+                      <img src="{% static 'Acc_Banner_Logo.jpg' %}" class="banner">
+                    </div>
+                  </div>
+                  <div class="container">
+                    <img src="{% static 'Acc_Signin_Logo.png' %}" class="banner-img">
+                    <h2>BE YOURSELF MAKE A DIFFERENCE</h2>
+                  </div>
+                </div>
+                <div class="b-example-divider-2" style="display: none;"></div>
+              </div>
             </div>
           </div>
-          <div class="container">
-            <img src="{% static 'Acc_Signin_Logo.png' %}" class="banner-img">
-            <h2>BE YOURSELF MAKE A DIFFERENCE</h2>
-          </div>
         </div>
-      <div class="b-example-divider-2" style="display: none;"></div>
-    </div>
-  </div>
-  </div>
-</div>
-</div>
-
-    <form action="/signin" method="post">
-      {% csrf_token %}
-      <div id="signin-border">
-        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-        <br>
-        {% for message in messages %}
-        <div class="msg-{{ message.tags }}" role="alert">
-          <strong style="color:white">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-              class="bi bi-exclamation-circle" viewBox="0 0 16 16">
-              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-              <path
-                d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
-            </svg>{{ message }}</strong>
-        </div>
-        {% endfor %}
-        <div class="form-floating">
-          <input type="text" class="form-control" id="username" , name="username" placeholder="name@example.com">
-          <label for="floatingInput">User Name</label>
-        </div>
-        <div class="form-floating">
-          <input type="password" class="form-control" id="pass1" , name="pass1" placeholder="Password">
-          <label for="floatingPassword">Password</label>
-        </div>
-
-        <div class="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-        <p>Don't have an account yet? <a href="{% url 'signup' %}">Create Account</a></p>
-        <p><a href="{% url 'signup' %}">Forgot your Password</a></p>
       </div>
-    </form>
-    <!--<p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>-->
 
-    <div class="cont-footer" id="main-footer">
-      <footer class="rootfooter" role="contentinfo">
-        <span class="foo-span">
-        </span>
-        <div class="copyright" title="© 2023 Workday, Inc. All rights reserved.">
-          © 2023 Aapurti - Portal, Inc. All rights reserved.
+      <form action="/signin" method="post">
+        {% csrf_token %}
+        <div id="signin-border">
+          <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+          <br>
+          {% for message in messages %}
+          <div class="msg-{{ message.tags }}" role="alert">
+            <strong style="color:white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path
+                  d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+              </svg>{{ message }}</strong>
+          </div>
+          {% endfor %}
+          <div class="form-floating">
+            <input type="text" class="form-control" id="username" , name="username" placeholder="name@example.com">
+            <label for="floatingInput">User Name</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control" id="pass1" , name="pass1" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+          </div>
+
+          <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" value="remember-me"> Remember me
+            </label>
+          </div>
+          <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+          <p>Don't have an account yet? <a href="#">Create Account</a></p>
+          <p><a href="{% url 'signup' %}">Forgot your Password</a></p>
         </div>
-        <span class="foo-last"></span>
-      </footer>
-    </div>
+      </form>
+      <!--<p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>-->
+
+      <div class="cont-footer" id="main-footer">
+        <footer class="rootfooter" role="contentinfo">
+          <span class="foo-span">
+          </span>
+          <div class="copyright" title="© 2023 Workday, Inc. All rights reserved.">
+            © 2023 Aapurti - Portal, Inc. All rights reserved.
+          </div>
+          <span class="foo-last"></span>
+        </footer>
+      </div>
   </main>
 </body>
 

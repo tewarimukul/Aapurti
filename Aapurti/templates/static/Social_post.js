@@ -131,3 +131,12 @@ function searchJob() {
 		}
 	}
 }
+
+//Post Confirmation
+
+function openModal() {
+	$('#myForm').on('submit', function(e){
+		$('#modal_success').modal('show');
+		e.preventDefault();
+	  });
+}

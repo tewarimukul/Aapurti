@@ -1,0 +1,277 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]--><!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]--><!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.108.0">
+    <title>Candidate Profiles</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script>
+
+        $("#post_btn").click(function () {
+            $(".msg-error").fadeIn(2000);
+            $(".msg-error").delay(6000);
+            $(".msg-error").fadeOut(2000);
+        });
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'candidatestatus.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor.css' %}" rel="stylesheet">
+
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</head>
+
+<body id="main-body">
+
+    <div class="header">
+        <div class="side-nav">
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        </div>
+        <form id="vendor_dash" action="/vendor/{{ name }}">
+            <div id="site-logo" class="site-logo" style="font-size: 16px;">
+                <a href="javascript:{}" onclick="document.getElementById('vendor_dash').submit();" data-raofz="14"
+                    role="link" style="font-size: 16px;">
+                    <img tabindex="-1" aria-label="Links to portal.accenture.com (opens new tab)"
+                        src="https://in.accenture.com/careers/wp-content/themes/brandspace/images/Accenture-Logo-Purple.svg"
+                        alt="Accenture Logo" id="acc-logo">
+                </a>
+            </div>
+        </form>
+        <div class="logo-seperator"></div>
+        <a href="#default" class="logo">
+            <img src="{%  static 'Aapurti_Logo.png' %}" class="main_logo">
+        </a>
+        <div class="header-right">
+            <a class="active" href="#home">Home</a>
+            <!--<a href="#contact">Contact</a>-->
+            <span type="button" class="user-icon" onclick="openUser()">
+                <svg class="svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M843.282963 870.115556c-8.438519-140.515556-104.296296-257.422222-233.908148-297.14963C687.881481 536.272593 742.4 456.533333 742.4 364.088889c0-127.241481-103.158519-230.4-230.4-230.4S281.6 236.847407 281.6 364.088889c0 92.444444 54.518519 172.183704 133.12 208.877037-129.611852 39.727407-225.46963 156.634074-233.908148 297.14963-0.663704 10.903704 7.964444 20.195556 18.962963 20.195556l0 0c9.955556 0 18.299259-7.774815 18.962963-17.73037C227.745185 718.506667 355.65037 596.385185 512 596.385185s284.254815 122.121481 293.357037 276.195556c0.568889 9.955556 8.912593 17.73037 18.962963 17.73037C835.318519 890.311111 843.946667 881.019259 843.282963 870.115556zM319.525926 364.088889c0-106.287407 86.186667-192.474074 192.474074-192.474074s192.474074 86.186667 192.474074 192.474074c0 106.287407-86.186667 192.474074-192.474074 192.474074S319.525926 470.376296 319.525926 364.088889z" />
+                </svg>
+            </span>
+        </div>
+
+        <!-- User Nav -->
+
+        <div id="userSidenav" class="usersidenav">
+            <div class="user-side-nav-logo">
+                <div class="user-side-nav-1">
+                    <svg class="user-svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M843.282963 870.115556c-8.438519-140.515556-104.296296-257.422222-233.908148-297.14963C687.881481 536.272593 742.4 456.533333 742.4 364.088889c0-127.241481-103.158519-230.4-230.4-230.4S281.6 236.847407 281.6 364.088889c0 92.444444 54.518519 172.183704 133.12 208.877037-129.611852 39.727407-225.46963 156.634074-233.908148 297.14963-0.663704 10.903704 7.964444 20.195556 18.962963 20.195556l0 0c9.955556 0 18.299259-7.774815 18.962963-17.73037C227.745185 718.506667 355.65037 596.385185 512 596.385185s284.254815 122.121481 293.357037 276.195556c0.568889 9.955556 8.912593 17.73037 18.962963 17.73037C835.318519 890.311111 843.946667 881.019259 843.282963 870.115556zM319.525926 364.088889c0-106.287407 86.186667-192.474074 192.474074-192.474074s192.474074 86.186667 192.474074 192.474074c0 106.287407-86.186667 192.474074-192.474074 192.474074S319.525926 470.376296 319.525926 364.088889z" />
+                    </svg>
+                    <div class="username">
+                        <span class="fname">{{ fname }}&nbsp;{{ lname }}</span>
+                        <span class="usern">@{{ username }}</span>
+                    </div>
+                </div>
+                <div class="user-side-nav-2">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeUser()"></a>
+                </div>
+            </div>
+            <div class="user-divider"></div>
+            <a href="#">Account Settings</a>
+            <a href="#">View Profile</a>
+            <div class="user-divider"></div>
+            <a href="#">Help</a>
+            <a href="#">Feedback</a>
+            <div class="user-divider"></div>
+            <a href="/signout">Sign Out</a>
+        </div>
+
+        <!-- End User Nav -->
+
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+        <div class="side-nav-logo">
+            <form id="vendor_dash" action="/vendor/{{ name }}">
+                <div class="side-nav-1">
+                    <a href="javascript:{}" onclick="document.getElementById('vendor_dash').submit();" data-raofz="14"
+                        role="link" style="font-size: 16px;">
+                        <img tabindex="-1" aria-label="Links to portal.accenture.com (opens new tab)"
+                            src="{% static 'Acc_Logo_White_Purple_RGB.png' %}" alt="Accenture Logo" id="acc-logo">
+                    </a>
+                </div>
+            </form>
+            <div class="side-nav-2">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            </div>
+        </div>
+
+        <a href="#">Add Profiles</a>
+        <a href="#">View Profiles</a>
+        <a href="#">Candidates</a>
+    </div>
+
+    <div class="page-hero">
+        <div class="image">
+            <div class="image-container">
+                <img src="{% static 'VendorBanner.jpg' %}" class="banner">
+            </div>
+        </div>
+        <div class="container">
+            <h2 id="dash">View Profile</h2>
+        </div>
+    </div>
+
+    <section class="field">
+        <div class="search">
+            <h5><b>Search</b></h5>
+            <input type="text" name="" id="searchCand" placeholder="Keyword" onkeyup="searchCand()">
+        </div>
+        <div class="jobs-desc">
+            <h4>Candidate Details</h4>
+            <p id="job-desc">Have a look on the profiles submitted be you !</p>
+            <div class="details">
+                {% for a in candidatedetails %}
+                {% if a.user == username %}
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ a.candidatename }}</h5>
+                        <div class="card-sep"></div>
+                        <div class="card_t">
+                            <p class="card_text_head">Specialization&nbsp;:&nbsp;</p>
+                            <p class="card_text jobid">{{ a.jobid }}</p>
+                        </div>
+                        <div class="card_t">
+                            <p class="card_text_head">Contact&nbsp;:&nbsp;</p>
+                            <p class="card_text phone">+91 {{ a.phone }}</p>
+                        </div>
+                        <div class="card-btn">
+                            <button type="button" class="mo-btn btn btn-info btn-lg" data-id="vendor"
+                                data-toggle="modal" data-target="#modal_vendor_{{ a.candidatename }}"
+                                data-whatever="New Request">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="modal_vendor_{{ a.candidatename }}" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title"><b>{{ a.candidatename }}</b></h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="modal-sec">
+                                    <h3>Personal Details</h3>
+                                    <div class="modal-cont">
+                                        <p>Name</p>
+                                        <input type="text" class="cand-form" value="{{ a.candidatename }}" disabled
+                                            style="margin-left: 75px;">
+                                    </div>
+                                    <div class="modal-cont">
+                                        <p>Gender</p>
+                                        <input type="text" class="cand-form" value="{{ a.Gender }}" disabled
+                                            style="margin-left: 65px;">
+                                    </div>
+                                </div>
+                                <div class="modal-cont">
+                                    <p>Pan Card</p>
+                                    <input type="text" class="cand-form" value="{{ a.pancard }}"
+                                        style="margin-left: 51px;">
+                                </div>
+                                <div class="modal-cont">
+                                    <p>Aadhar Card</p>
+                                    <input type="text" class="cand-form" value="{{ a.aadhar }}"
+                                        style="margin-left: 25px;">
+                                </div>
+                                <div class="modal-sep"></div>
+                                <div class="modal-sec">
+                                    <h3>Skill Details</h3>
+                                    <div class="modal-cont">
+                                        <p>Specialization </p>
+                                        <input type="text" class="cand-form" value="{{ a.jobid }}"
+                                            style="margin-left: 17px;">
+                                    </div>
+                                </div>
+                                <div class="modal-sep"></div>
+                                <div class="modal-sec">
+                                    <h3>Contact Details</h3>
+                                    <div class="modal-cont">
+                                        <p>Phone Number</p>
+                                        <input type="text" class="cand-form" value="+91 {{ a.phone }}">
+                                    </div>
+                                    <div class="modal-cont">
+                                        <p>Email ID</p>
+                                        <input type="text" class="cand-form" value="{{ a.candEmail }}"
+                                            style="margin-left: 62px;">
+                                    </div>
+                                    <div class="modal-sep"></div>
+                                    <div class="modal-sec">
+                                        <h3>Profile Status</h3>
+                                        <div class="modal-cont">
+                                            <span class="review">Under Review</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="modal-footer">
+                                    <div class="modal-btns">
+                                        <!--<button type="submit" class="mo-btn btn btn-info btn-lg btn-val">Submit</button>-->
+                                        <button type="button" class="btn btn-default btn-close"
+                                            data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <div class="cont-footer" id="main-footer">
+        <footer class="rootfooter" role="contentinfo">
+            <span class="foo-span">
+            </span>
+            <div class="copyright" title="© 2023 Workday, Inc. All rights reserved.">
+                © 2023 Aapurti - Portal, Inc. All rights reserved.
+            </div>
+            <span class="foo-last"></span>
+        </footer>
+    </div>
+
+    <script src="{% static 'Social_post.js' %}"></script>
+    <script src="{% static 'popup.js' %}"></script>
+    <script src="{% static 'candidatesearch.js' %}"></script>
+</body>
+
+</html>

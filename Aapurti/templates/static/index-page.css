@@ -1347,6 +1347,13 @@ span {
     transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
 }
 
+.main_logo {
+    height: auto;
+    width: 130px;
+    margin: -26px;
+    margin-left: -29px;
+  }
+
 .button--mimas:hover::before {
     transform: translate3d(100%, 0, 0);
 }
