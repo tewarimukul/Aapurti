@@ -69,7 +69,9 @@
             </div>
         </form>
         <div class="logo-seperator"></div>
-        <a href="#default" class="logo">Aapurti - Portal</a>
+        <a href="#default" class="logo">
+            <img src="{%  static 'Aapurti_Logo.png' %}" class="main_logo">
+        </a>
         <div class="header-right">
             <a class="active" href="#home">Home</a>
             <!--<a href="#contact">Contact</a>-->
@@ -146,6 +148,10 @@
     </div>
 
     <section class="field">
+        <div class="search">
+            <h5><b>Search</b></h5>
+            <input type="text" name="" id="searchCand" placeholder="Keyword" onkeyup="searchCand()">
+        </div>
         <div class="jobs-desc">
             <h4>Candidate Details</h4>
             <p id="job-desc">Have a look on the profiles submitted be you !</p>
@@ -158,11 +164,11 @@
                         <div class="card-sep"></div>
                         <div class="card_t">
                             <p class="card_text_head">Specialization&nbsp;:&nbsp;</p>
-                            <p class="card_text">{{ a.jobid }}</p>
+                            <p class="card_text jobid">{{ a.jobid }}</p>
                         </div>
                         <div class="card_t">
                             <p class="card_text_head">Contact&nbsp;:&nbsp;</p>
-                            <p class="card_text">{{ a.phone }}</p>
+                            <p class="card_text phone">+91 {{ a.phone }}</p>
                         </div>
                         <div class="card-btn">
                             <button type="button" class="mo-btn btn btn-info btn-lg" data-id="vendor"
@@ -200,7 +206,7 @@
                                 </div>
                                 <div class="modal-cont">
                                     <p>Aadhar Card</p>
-                                    <input type="text" class="cand-form" value="{{ a.pancard }}"
+                                    <input type="text" class="cand-form" value="{{ a.aadhar }}"
                                         style="margin-left: 25px;">
                                 </div>
                                 <div class="modal-sep"></div>
@@ -217,7 +223,7 @@
                                     <h3>Contact Details</h3>
                                     <div class="modal-cont">
                                         <p>Phone Number</p>
-                                        <input type="text" class="cand-form" value="{{ a.phone }}">
+                                        <input type="text" class="cand-form" value="+91 {{ a.phone }}">
                                     </div>
                                     <div class="modal-cont">
                                         <p>Email ID</p>
@@ -265,6 +271,7 @@
 
     <script src="{% static 'Social_post.js' %}"></script>
     <script src="{% static 'popup.js' %}"></script>
+    <script src="{% static 'candidatesearch.js' %}"></script>
 </body>
 
 </html>

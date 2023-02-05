@@ -1,4 +1,5 @@
 {% load static %}
+{% load social_share %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -14,23 +15,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    
     <script>
-
         $("#post_btn").click(function () {
             $(".msg-error").fadeIn(2000);
             $(".msg-error").delay(6000);
             $(".msg-error").fadeOut(2000);
         });
     </script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
 
 <body id="main-body">
+
+    <script type="text/javascript">
+        //var exurl = document.getElementById("success_verify").value;
+        var url = "{% url 'main' name 'False' 'GET' %}";
+        if (window.performance) {
+            console.info("window.performance works fine on this browser");
+        }
+        console.info(performance.navigation.type);
+        if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {            
+            //console.log(url + exurl)
+            document.location.href =  url;
+            //console.info( "This page is reloaded" );
+        } else {
+            //console.info( "This page is not reloaded" + url);
+        }
+    </script>
+
+    <input type="text" id="success_verify" name="success_verify" style="display: none;" value="/{{ name }}/{{ successful_submit }}/{{ resp }}">
     <div class="header">
         <div class="side-nav">
             <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
@@ -43,12 +71,16 @@
             </a>
         </div>
         <div class="logo-seperator"></div>
-        <a href="#default" class="logo">Aapurti - Portal</a>
+        <a href="#default" class="logo">
+            <img src="{%  static 'Aapurti_Logo.png' %}" class="main_logo">
+        </a>
         <div class="header-right">
             <a class="active" href="#home">Home</a>
             <!--<a href="#contact">Contact</a>-->
             <span type="button" class="user-icon" onclick="openUser()">
-                <svg class="svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M843.282963 870.115556c-8.438519-140.515556-104.296296-257.422222-233.908148-297.14963C687.881481 536.272593 742.4 456.533333 742.4 364.088889c0-127.241481-103.158519-230.4-230.4-230.4S281.6 236.847407 281.6 364.088889c0 92.444444 54.518519 172.183704 133.12 208.877037-129.611852 39.727407-225.46963 156.634074-233.908148 297.14963-0.663704 10.903704 7.964444 20.195556 18.962963 20.195556l0 0c9.955556 0 18.299259-7.774815 18.962963-17.73037C227.745185 718.506667 355.65037 596.385185 512 596.385185s284.254815 122.121481 293.357037 276.195556c0.568889 9.955556 8.912593 17.73037 18.962963 17.73037C835.318519 890.311111 843.946667 881.019259 843.282963 870.115556zM319.525926 364.088889c0-106.287407 86.186667-192.474074 192.474074-192.474074s192.474074 86.186667 192.474074 192.474074c0 106.287407-86.186667 192.474074-192.474074 192.474074S319.525926 470.376296 319.525926 364.088889z"  />
+                <svg class="svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M843.282963 870.115556c-8.438519-140.515556-104.296296-257.422222-233.908148-297.14963C687.881481 536.272593 742.4 456.533333 742.4 364.088889c0-127.241481-103.158519-230.4-230.4-230.4S281.6 236.847407 281.6 364.088889c0 92.444444 54.518519 172.183704 133.12 208.877037-129.611852 39.727407-225.46963 156.634074-233.908148 297.14963-0.663704 10.903704 7.964444 20.195556 18.962963 20.195556l0 0c9.955556 0 18.299259-7.774815 18.962963-17.73037C227.745185 718.506667 355.65037 596.385185 512 596.385185s284.254815 122.121481 293.357037 276.195556c0.568889 9.955556 8.912593 17.73037 18.962963 17.73037C835.318519 890.311111 843.946667 881.019259 843.282963 870.115556zM319.525926 364.088889c0-106.287407 86.186667-192.474074 192.474074-192.474074s192.474074 86.186667 192.474074 192.474074c0 106.287407-86.186667 192.474074-192.474074 192.474074S319.525926 470.376296 319.525926 364.088889z" />
                 </svg>
             </span>
         </div>
@@ -58,7 +90,9 @@
         <div id="userSidenav" class="usersidenav">
             <div class="user-side-nav-logo">
                 <div class="user-side-nav-1">
-                    <svg class="user-svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M843.282963 870.115556c-8.438519-140.515556-104.296296-257.422222-233.908148-297.14963C687.881481 536.272593 742.4 456.533333 742.4 364.088889c0-127.241481-103.158519-230.4-230.4-230.4S281.6 236.847407 281.6 364.088889c0 92.444444 54.518519 172.183704 133.12 208.877037-129.611852 39.727407-225.46963 156.634074-233.908148 297.14963-0.663704 10.903704 7.964444 20.195556 18.962963 20.195556l0 0c9.955556 0 18.299259-7.774815 18.962963-17.73037C227.745185 718.506667 355.65037 596.385185 512 596.385185s284.254815 122.121481 293.357037 276.195556c0.568889 9.955556 8.912593 17.73037 18.962963 17.73037C835.318519 890.311111 843.946667 881.019259 843.282963 870.115556zM319.525926 364.088889c0-106.287407 86.186667-192.474074 192.474074-192.474074s192.474074 86.186667 192.474074 192.474074c0 106.287407-86.186667 192.474074-192.474074 192.474074S319.525926 470.376296 319.525926 364.088889z"  />
+                    <svg class="user-svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M843.282963 870.115556c-8.438519-140.515556-104.296296-257.422222-233.908148-297.14963C687.881481 536.272593 742.4 456.533333 742.4 364.088889c0-127.241481-103.158519-230.4-230.4-230.4S281.6 236.847407 281.6 364.088889c0 92.444444 54.518519 172.183704 133.12 208.877037-129.611852 39.727407-225.46963 156.634074-233.908148 297.14963-0.663704 10.903704 7.964444 20.195556 18.962963 20.195556l0 0c9.955556 0 18.299259-7.774815 18.962963-17.73037C227.745185 718.506667 355.65037 596.385185 512 596.385185s284.254815 122.121481 293.357037 276.195556c0.568889 9.955556 8.912593 17.73037 18.962963 17.73037C835.318519 890.311111 843.946667 881.019259 843.282963 870.115556zM319.525926 364.088889c0-106.287407 86.186667-192.474074 192.474074-192.474074s192.474074 86.186667 192.474074 192.474074c0 106.287407-86.186667 192.474074-192.474074 192.474074S319.525926 470.376296 319.525926 364.088889z" />
                     </svg>
                     <div class="username">
                         <span class="fname">{{ fname }}&nbsp;{{ lname }}</span>
@@ -66,7 +100,7 @@
                     </div>
                 </div>
                 <div class="user-side-nav-2">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeUser()"></a>
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeUser()"></a>
                 </div>
             </div>
             <div class="user-divider"></div>
@@ -78,18 +112,18 @@
             <div class="user-divider"></div>
             <a href="/signout">Sign Out</a>
         </div>
-        
+
         <!-- End User Nav -->
     </div>
 
     <div class="page-hero" id="page-hero">
         <div class="image">
-          <div class="image-container">
-            <img src="https://myinnovation.accenture.com/violet_bg.1f2582a7fee390eb70f6.png" class="banner">
-          </div>
+            <div class="image-container">
+                <img src="https://myinnovation.accenture.com/violet_bg.1f2582a7fee390eb70f6.png" class="banner">
+            </div>
         </div>
         <div class="container">
-          <h2>Open Demands</h2>
+            <h2>Open Demands</h2>
         </div>
     </div>
     <!--<h3>Welcome to Aapurti</h3>
@@ -114,19 +148,20 @@
                 <input type="text" name="" id="search" placeholder="Search by Skills" onkeyup="searchJob()">
             </div>
         </section>
-        
+
         <div id="mySidenav" class="sidenav">
             <div class="side-nav-logo">
                 <div class="side-nav-1">
                     <a href="{% url 'home' %}" data-raofz="14" role="link" style="font-size: 16px;">
-                        <img tabindex="-1" aria-label="Links to portal.accenture.com (opens new tab)" src="{% static 'Acc_Logo_White_Purple_RGB.png' %}" alt="Accenture Logo" id="acc-logo">
+                        <img tabindex="-1" aria-label="Links to portal.accenture.com (opens new tab)"
+                            src="{% static 'Acc_Logo_White_Purple_RGB.png' %}" alt="Accenture Logo" id="acc-logo">
                     </a>
                 </div>
                 <div class="side-nav-2">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 </div>
             </div>
-            
+
             <a href="#" class="nav-content">New Demands</a>
             <a href="#" class="nav-content">Vendors</a>
             <a href="#" class="nav-content">Clients</a>
@@ -134,32 +169,87 @@
         </div>
 
         <section class="field">
-            <div class="jobs-desc">
-                {% for message in messages %}
-                <div class="msg-{{ message.tags }}" role="alert">
-                    <strong style="color:white">{{ message }}</strong>
+
+            {% if successful_submit == "True" %}
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $("#modal_success").modal('show');
+                });
+            </script>
+            {% endif %}
+
+            <div class="modal fade" id="modal_success" role="dialog">
+                <div class="modal-dialog modal-dialog-3">
+
+                    <!-- Modal content -->
+                    <div class="modal-content modal-content-3">
+                        <!--<div class="modal-header">
+                            <!--<h4 class="modal-title"><b>Job Description for RRD: {{ a.jobid }}</b></h4>--
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>-->
+                        {% for message in messages %}
+                        <div class="modal-body">
+                            {% if message.tags == "success" %}
+                            <div class="m-out out-{{ message.tags }}">
+                                <img src="{% static 'success.svg' %}" style="height: 100px;">
+                            </div>
+                            <h3>Post Successful</h3>
+                            <strong style="color:black">{{ message }}<br>
+                                <a href="https://www.facebook.com/profile.php?id=100089245873582" target="_blank">Goto Facebook Page
+                                </a>
+                            </strong>
+                            {% else %}
+                            <div class="m-out out-{{ message.tags }}">
+                                <img src="{% static 'danger.svg' %}" style="height: 80px;">
+                            </div>
+                            <h3>Post Failed</h3>
+                            <strong style="color:black">{{ message }}</strong>
+                            {% endif %}
+                        </div>
+                        <button type="button" class="btn btn-default btn-close" data-dismiss="modal">Close</button>
+                        {% endfor %}
+                         <div class="modal-footer">
+                                <a href="#">Having Trouble?</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            {% endfor %}
+
+            <!--<div class="jobs-desc">
+                {% for message in messages %}
+                <div class="msg-{{ message.tags }}" role="alert">
+                    {% if message.tags == "success" %}
+                        <strong style="color:white">{{ message }}&nbsp;&nbsp;
+                            <a href="https://www.facebook.com/profile.php?id=100089245873582">Goto Facebook Page
+                            </a>
+                        </strong>
+                    {% else %}
+                        <strong style="color:white">{{ message }}</strong>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}-->
             <table>
                 <thead>
                     <tr>
-                        <th>Job ID</th>
+                        <th>RRD/SR</th>
                         <th>Primary Skill</th>
-                        <th>Level</th>
+                        <th>Mgmt Level</th>
                         <th>Project</th>
                         <th>Location</th>
-                        <th>Approval Status</th>
+                        <th style="width: 240px;">Approval Status</th>
                         <th>View JD</th>
                         <th>Social Media</th>
-                        <th>Go!</th>
+                        <th style="width: 140px;">Post on Social Media</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for a in JobDetailsData %}
                     <tr>
-                        <form action="/fbPost/{{ name }}" method="post">
+                        <form action="/fbPost/{{ name }}/{{ successful_submit }}/{{ resp }}" method="post" id="myForm">
                         {% csrf_token %}
+                            <input type="text" id="success_verify" name="success_verify" style="display: none;"
+                                value="True">
                             <td>{{ a.jobid }}</td> <!--{% if player.player_check %} checked{% endif %}-->
                             <td>{{ a.primary_skill }}</td>
                             <td>{{ a.level }}</td> <!---name="{{ a.filled }}" value="False"-->
@@ -183,25 +273,29 @@
                             <td>
                                 <button type="button" class="mo-btn btn btn-info btn-lg" data-id="{{ a.jobid }}"
                                     data-toggle="modal" data-target="#modal_{{ a.jobid }}"
-                                    data-whatever="{{ a.description }}">Click me!</button>
+                                    data-whatever="{{ a.description }}">Description</button>
 
                                 <div class="modal fade" id="modal_{{ a.jobid }}" role="dialog">
-                                    <div class="modal-dialog">
+                                    <div class="modal-dialog modal-dialog-2">
 
                                         <!-- Modal content-->
-                                        <div class="modal-content">
+                                        <div class="modal-content modal-content-2">
                                             <div class="modal-header">
-                                                <h4 class="modal-title"><b>Job Description for Job ID: {{ a.jobid }}</b></h4>
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title"><b>Job Description for RRD: {{ a.jobid }}</b>
+                                                </h4>
+                                                <button type="button" class="close"
+                                                    data-dismiss="modal">&times;</button>
                                             </div>
                                             <div class="modal-body">
-                                                <textarea id="Description" name="Description" class="desc-text">Primary Skill: {{ a.primary_skill }}&#13;&#10;&#13;&#10;Employee Level: {{ a.level }}&#13;&#10;&#13;&#10;Description: {{ a.description }}&#13;&#10;&#13;&#10;Location: {{ a.location }}&#13;&#10;&#13;&#10;Click this link and Signup: http://localhost:8080/
+                                                <textarea id="Description" name="Description" class="desc-text">Primary Skill: {{ a.primary_skill }}&#13;&#10;&#13;&#10;Employee Level: {{ a.level }} - {{ a.lvl_desc }}&#13;&#10;&#13;&#10;Description: {{ a.description }}&#13;&#10;&#13;&#10;Location: {{ a.location }}&#13;&#10;&#13;&#10;
                                                 </textarea>
-                                                <label for="floatingInput">Add some interesting Hash Tags to get connected with more people ! </label>
-                                                <input type="text" class="hash-tag" id="hash_tag" name="hash_tag" value="#">
+                                                <label for="floatingInput">Add some interesting Hash Tags to get
+                                                    connected with more people ! </label>
+                                                <input type="text" class="hash-tag" id="hash_tag" name="hash_tag"
+                                                    value="#">
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-default btn-close"
+                                                <button type="button" class="btn btn-default btn-close .btn-close-2"
                                                     data-dismiss="modal">Close</button>
                                             </div>
                                         </div>
@@ -218,7 +312,7 @@
                                 </select>
                             </td>
                             <td>
-                                <button class="btn" id="post_btn" type="submit" name="submit-btn" {% if not a.Approval %} disabled {% endif %}>Post</button>
+                                <button class="btn" id="post_btn" type="submit" name="submit-btn" call_type="{{ name }}" {% if not a.Approval %} disabled {% endif %}>Post</button>
                             </td>
                         </form>
                     </tr>
@@ -236,14 +330,14 @@
 
         <div class="cont-footer" id="main-footer">
             <footer class="rootfooter" role="contentinfo">
-              <span class="foo-span">
-              </span>
-              <div class="copyright" title="© 2023 Aapurti - Portal, Inc. All rights reserved.">
-                © 2023 Aapurti - Portal, Inc. All rights reserved.
-              </div>
-              <span class="foo-last"></span>
+                <span class="foo-span">
+                </span>
+                <div class="copyright" title="© 2023 Aapurti - Portal, Inc. All rights reserved.">
+                    © 2023 Aapurti - Portal, Inc. All rights reserved.
+                </div>
+                <span class="foo-last"></span>
             </footer>
-          </div>
+        </div>
     </main>
 
     <script src="{% static 'Social_post.js' %}"></script>

@@ -4,7 +4,8 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" 
+      content="width=device-width, initial-scale=0.9, maximum-scale=1.0, user-scalable=0">
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.108.0">
@@ -14,7 +15,8 @@
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/headers/">
   <link href="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <!-- Favicons -->
   <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/apple-touch-icon.png"
     sizes="180x180">
@@ -28,15 +30,30 @@
   <link rel="icon" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/favicon.ico">
   <meta name="theme-color" content="#712cf9">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
   <!-- Custom styles for this template -->
   <link href="{% static 'sign-up.css' %}" rel="stylesheet">
+
 </head>
 
 <body class="container-body">
 
   <main class="form-signin w-100 m-auto">
     <div class="header">
-      <a href="{% url 'home' %}" class="logo">Aapurti Portal</a>
+      <a href="{% url 'home' %}" class="logo">
+        <img src="{%  static 'Aapurti_Logo.png' %}" class="main_logo">
+      </a>
       <div class="header-right">
         <a class="active" href="#home">Home</a>
         <a href="#contact">Contact</a>
@@ -48,14 +65,14 @@
         <div class="banner">
           <div class="banner-1">
             <div class="fbanner">
-      <div class="b-example-divider"></div>
-      <img class="banner-size" src="{% static 'banner' %}" alt="Aapurti-Portal">
-      <div class="b-example-divider-2"></div>
+              <div class="b-example-divider"></div>
+              <img class="banner-size" src="{% static 'banner' %}" alt="Aapurti-Portal">
+              <div class="b-example-divider-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  </div>
-</div>
-</div>
 
     <form action="/signup" method="post">
       {% csrf_token %}
@@ -124,19 +141,50 @@
               </a>
             </span>
             <span>
-              which includes 1) assessing my suitability for employment for roles I’m applying to and future opportunities, and 2) receiving information about Accenture and new job opportunities.
+              which includes 1) assessing my suitability for employment for roles I’m applying to and future
+              opportunities, and 2) receiving information about Accenture and new job opportunities.
             </span>
           </span>
         </div>
-        <div class="checkbox mb-3">
-          <label>
-            <input id="accept-me" type="checkbox" value="remember-me" required> I Accept
-          </label>
-        </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Create Account</button>
+        <button class="w-100 btn btn-lg btn-primary mar" type="button" data-id="vendor" data-toggle="modal"
+          data-target="#modal_vendor" data-whatever="Crowdsourcing Partner Agreement">View Terms and Services.</button>
         <p>Already have an Account?? <a href="{% url 'vendorsignin' %}">Sign In</a></p>
         <p><a href="{% url 'signup' %}">Forgot your Password</a></p>
       </div>
+
+      <div class="modal fade" id="modal_vendor" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title"><b>Crowdsourcing Partner Agreement</b></h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <textarea id="Description" name="Description" class="desc-text">This Vendor Agreement (here in after termed as “Agreement”) is made and entered into on 4th day of April of 2021 (here in after termed as “Said Day") by and between {{ name }} with its principal place of business located at Phursungi (hereinafter referred as “Vendor” and Accenture with [his/her/business] located at Registered Office: Accenture Solutions Pvt. Ltd. Plant-3, Godrej & Boyce Complex, LBS Marg Vikhroli (W), Mumbai 400079. Maharashtra &#x2022; India. Tel : 022 6600 3000 &#x2022; Fax : 022 4044 4420 www.accenture.com &#x2022; CIN: U72400MH1990PTC057492 (herein after referred as “customer” and collectively as “the customers”). &#13;&#10;&#13;&#10;WHEREAS, the vendor unddigoes the business of IT resource consulting; WHEREAS, the vendor has offered the customer to provide role based profiles for 93223; WHEREAS, the vendor will commence the selling of goods or services to the customer from and for 93223; &#13;&#10;&#13;&#10;NOW, THEREFORE, the Parties hereby agree as Follows: &#13;&#10;
+                &#x2022; The vendor will provide resources for hiring process to the customer on consideration paid by customer. The agreement has to commence From 4/4/2021, and shall terminate on fulfillment of demand 93223;
+                
+                &#x2022; The vendor must provide profiles post registration which shall be validated For any conflict, customer will have final right to decide if a profile is duplicate and has right to not accept a profile.
+                
+                &#x2022; Customer is obliged to make payment 10% of annual compenstation of candidate joined on 90 day after the joining of reffered candidate. The law which governs the agreement will be Indian xxx xxxx The work shall be conducted across union of India.
+                
+                &#x2022; When dispute arises the parties shall use arbitration as a mode to redressal.&#13;&#10;&#13;&#10;NOW WHEREAS, by accepting below, the vendor acknowledges their understanding of the terms of doing business with his or her client, and agrees to abide by these terms at all times.
+                  </textarea>
+                  <div class="checkbox mb-3">
+                    <label>
+                      <input class="accept-me" id="accept-me" type="checkbox" value="True" required onclick="onCheck()">&nbsp;&nbsp;&nbsp;I Agree to the All of above stated Terms and Service.
+                    </label>
+                  </div>
+              <div class="modal-footer">
+                <div class="modal-btns">
+                  <button type="submit" class="mo-btn btn btn-info btn-lg btn-val" id="sign-up" disabled>Sign up</button>
+                  <button type="button" class="btn btn-default sbtn-close" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </form>
     <!--<p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>-->
 
@@ -151,6 +199,9 @@
       </footer>
     </div>
   </main>
+  <script src="{% static 'Social_post.js' %}"></script>
+  <script src="{% static 'popup.js' %}"></script>
+  <script src="{% static 'signup.js' %}"></script>
 </body>
 
 </html>

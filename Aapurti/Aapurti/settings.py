@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authentication',
     'Aapurti',
+    'django_social_share',
 ]
 
 MIDDLEWARE = [

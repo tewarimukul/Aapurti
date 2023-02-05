@@ -18,13 +18,13 @@ select,
 button {
   font-family: 'Poppins', sans-serif !important;
   text-align: center;
-  font-size: 19px !important;
+  font-size: 15px !important;
 }
 
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 102%;
 }
 
 .jobs-desc {
@@ -69,7 +69,8 @@ table tr:last-child td:last-child {
   width: 21px;
 }
 
-.btn:not(:disabled):not(.disabled), .btn-close:not(:disabled):not(.disabled) {
+.btn:not(:disabled):not(.disabled),
+.btn-close:not(:disabled):not(.disabled) {
   display: inline-block;
   font-weight: 400;
   text-align: center;
@@ -96,12 +97,14 @@ table tr:last-child td:last-child {
   background-color: #28a745;
   border-color: #28a745;
   -webkit-appearance: button;
-  cursor: pointer;
 }
 
 .btn-close:not(:disabled):not(.disabled) {
   background-color: #dc3545 !important;
   border-color: #dc3545 !important;
+  cursor: pointer;
+  width: 40%;
+  margin: 20px auto;
 }
 
 .btn-close:hover:not(:disabled):not(.disabled) {
@@ -110,7 +113,8 @@ table tr:last-child td:last-child {
   background-color: #fff !important;
 }
 
-.btn:hover:not(:disabled):not(.disabled), .btn-close:hover:not(:disabled):not(.disabled) {
+.btn:hover:not(:disabled):not(.disabled),
+.btn-close:hover:not(:disabled):not(.disabled) {
   color: #fff;
   /*background-color: #218838;
   border-color: #1e7e34;*/
@@ -123,8 +127,8 @@ table tr:last-child td:last-child {
 
 .mo-btn:hover {
   background-color: #fff !important;
-  border-color: #287fa7 !important;
-  color: #287fa7 !important;
+  border-color: #a100ff !important;
+  color: #a100ff !important;
   font-weight: bolder;
   border-width: 1px;
 }
@@ -162,9 +166,76 @@ table tr:last-child td:last-child {
   -webkit-appearance: button;
 }
 
+.main_logo {
+  height: auto;
+  width: 130px;
+  margin: -36px;
+  margin-left: -29px;
+}
+
+.modal-body h3 {
+  font-size: 30px !important;
+  margin-bottom: 15px;
+}
+
+.m-out {
+  height: 160px;
+  width: 160px;
+  margin: 20px auto 50px auto;
+  border-style: solid;
+  border-radius: 145px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  border-width: 5px;
+}
+
+.btn-close-2 {
+  margin: 5px auto !important;
+}
+
+.modal-dialog-2 {
+  margin: 1.75rem 35rem !important;
+  /* margin: auto !important; */
+  /* margin-top: 90px !important; */
+  top: 1% !important;
+}
+
+@media (min-width: 576px) {
+  .modal-dialog-2 {
+    max-width: 748px !important;
+    margin: 2.75rem auto !important;
+  }
+}
+
+.modal-content-2 {
+  border-radius: 15px !important;
+  width: 748px !important;
+  height: 625px !important;
+}
+
+.modal-footer {
+  justify-content: center !important;
+  padding: 1rem;
+  border-top: 1px solid #e9ecef;
+  width: 90% !important;
+  margin: auto !important;
+  font-size: 13px !important;
+}
+
+.out-success {
+  border-color: #4caf50;
+}
+
+.out-error {
+  border-color: #f44336;
+}
+
 .mo-btn {
-  background-color: #287fa7 !important;
-  border-color: #287fa7 !important;
+  background-color: #a100ff !important;
+  border-color: #a100ff !important;
 }
 
 .msg-error {
@@ -174,9 +245,10 @@ table tr:last-child td:last-child {
   border-radius: 7px;
   background-color: red;
   text-align: center;
-  transition: 1s;
-  -webkit-animation: fadeinout 8s linear forwards;
-  animation: fadeinout 8s linear forwards;
+  transition: 0.5s;
+  font-size: 18px !important;
+  /*-webkit-animation: fadeinout 8s linear forwards;
+  animation: fadeinout 8s linear forwards;*/
 }
 
 .msg-success {
@@ -186,9 +258,14 @@ table tr:last-child td:last-child {
   border-radius: 7px;
   background-color: green;
   text-align: center;
-  transition: 1s;
-  -webkit-animation: fadeinout 8s linear forwards;
-  animation: fadeinout 8s linear forwards;
+  transition: 0.5ss;
+  font-size: 18px !important;
+  /*-webkit-animation: fadeinout 8s linear forwards;
+  animation: fadeinout 8s linear forwards;*/
+}
+
+.msg-success a {
+  color: white !important;
 }
 
 @-webkit-keyframes fadeinout {
@@ -225,23 +302,38 @@ table tr:last-child td:last-child {
   width: 720px;
   height: 50px;
   padding: 10px;
+  border-radius: 10px;
+  border-width: 1px;
 }
 
 .desc-text {
-  height: 313px;
+  height: 367px;
   width: 100%;
   resize: vertical;
   padding: 10px;
+  border-radius: 10px;
 }
 
 .modal-dialog {
-  margin: 11.75rem auto !important;
+  /* margin: 1.75rem 44rem !important; */
+  margin: auto !important;
+  /* margin-top: 90px !important; */
+  top: 14%;
 }
 
-.modal-content {
-  border-radius: 15px;
-  width: 150% !important;
+@media (min-width: 576px) {
+  .modal-dialog-3 {
+    max-width: 362px !important;
+    margin: 1.75rem auto !important;
+  }
 }
+
+.modal-content-3 {
+  border-radius: 15px;
+  width: 360px !important;
+  height: 495px;
+}
+
 .signout-btn {
   margin: 12px;
   /* color: white !important; */
@@ -472,8 +564,8 @@ select {
 }
 
 table {
-  width: 100%;
-  margin: 2px auto;
+  width: 110%;
+  margin: 2px -73px;
   table-layout: auto;
   color: #292929;
   background-color: #ffff;
@@ -655,6 +747,7 @@ h5 {
 .user-icon {
   display: flex
 }
+
 /*
 .user-icon:hover {
   /*background-color: #a100ff;
@@ -670,18 +763,18 @@ h5 {
 */
 
 .svg-icon {
-    vertical-align: middle;
-    fill: currentColor;
-    overflow: hidden;
-    height: 87%;
-    display: flex;
-    margin-right: 59px;
-    margin-top: 6px;
-    margin-left: 2px;
-    vertical-align: middle;
-    fill: currentColor;
-    overflow: hidden;
-    padding: 10px;
+  vertical-align: middle;
+  fill: currentColor;
+  overflow: hidden;
+  height: 87%;
+  display: flex;
+  margin-right: 59px;
+  margin-top: 6px;
+  margin-left: 2px;
+  vertical-align: middle;
+  fill: currentColor;
+  overflow: hidden;
+  padding: 10px;
 }
 
 .svg-icon:hover {
@@ -712,7 +805,8 @@ h5 {
   cursor: pointer;
 }
 
-.dropbtn:hover, .dropbtn:focus {
+.dropbtn:hover,
+.dropbtn:focus {
   background-color: #2980B9;
 }
 
@@ -727,7 +821,7 @@ h5 {
   background-color: #f1f1f1;
   min-width: 160px;
   overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -738,9 +832,12 @@ h5 {
   display: block;
 }
 
-.dropdown a:hover {background-color: #ddd;}
+.dropdown a:hover {
+  background-color: #ddd;
+}
 
-.show {display: block;
+.show {
+  display: block;
 }
 
 /* FOOTER */
@@ -872,20 +969,20 @@ h5 {
 
 .side-nav-logo div {
   display: flex;
-  clear:both;
+  clear: both;
 }
 
 /* BANNER */
 
 @media (min-width: 851px) {
   .page-hero {
-      /*margin: 0 0 5rem;*/
+    /*margin: 0 0 5rem;*/
   }
 }
 
 @media (min-width: 851px) {
   .image {
-      /*margin-bottom: 2rem;*/
+    /*margin-bottom: 2rem;*/
   }
 }
 
@@ -897,45 +994,45 @@ h5 {
 
 @media (min-width: 851px) {
   .page-hero .container {
-      left: 6rem;
-      min-width: calc(100% - 12rem);
+    left: 6rem;
+    min-width: calc(100% - 12rem);
   }
 }
 
 @media only screen and (min-width: 60em) {
   .container {
-      width: 75%;
-      max-width: 60rem;
+    width: 75%;
+    max-width: 60rem;
   }
 }
 
 @media only screen and (min-width: 33.75em) {
   .container {
-      width: 80%;
+    width: 80%;
   }
 }
 
 @media (min-width: 1200px) {
   .container {
-      width: 1170px;
+    width: 1170px;
   }
 }
 
 @media (min-width: 992px) {
   .container {
-      width: 970px;
+    width: 970px;
   }
 }
 
 @media (min-width: 768px) {
   .container {
-      width: 750px;
+    width: 750px;
   }
 }
 
 @media (min-width: 1200px) {
   h1 {
-      font-size: 11rem;
+    font-size: 11rem;
   }
 }
 
@@ -947,14 +1044,14 @@ h5 {
   }
 }
 
-.page-hero .container {      
-      
+.page-hero .container {
+
   min-width: calc(100vw - 4rem);
   position: absolute;
   left: 2rem;
   top: 50%;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 @media (min-width: 851px) {
@@ -975,9 +1072,11 @@ h5 {
   .image img {
     height: auto;
   }
+
   .image .image-container {
     width: 100% !important;
   }
+
   .image.with-margin {
     width: calc(100% - 2rem - 2rem);
     margin: 0 2rem 1rem;
@@ -1004,9 +1103,9 @@ h5 {
 }
 
 .page-hero h2:hover {
- opacity: 0.5;
- color:#a100ff;
- transition: 3s;
+  opacity: 0.5;
+  color: #a100ff;
+  transition: 3s;
 }
 
 .page-hero h2:hover::after {
@@ -1165,7 +1264,7 @@ h5 {
 
 .user-side-nav-logo div {
   display: flex;
-  clear:both;
+  clear: both;
   display: flex;
 }
 
@@ -1264,5 +1363,5 @@ h5 {
   font-size: 20px;
   color: gray;
 }
-/********/
 
+/********/

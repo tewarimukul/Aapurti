@@ -220,3 +220,32 @@ td {
     content: '';
     border-radius: 50%;
 }
+
+.search {
+    flex-shrink: 0;
+    display: flex;
+    align-content: center;
+    align-items: center;
+  
+  }
+
+  .search input {
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 1px;
+  }
+
+  .search>input {
+    padding: 8px;
+    border: none;
+    outline: navajowhite;
+    margin: 0 0 0 20px;
+    background: white;
+  }
+
+  .main_logo {
+    height: auto;
+    width: 130px;
+    margin: -26px;
+    margin-left: -29px;
+  }

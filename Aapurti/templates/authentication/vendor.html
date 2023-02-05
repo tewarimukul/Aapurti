@@ -67,7 +67,9 @@
             </div>
         </form>
         <div class="logo-seperator"></div>
-        <a href="#default" class="logo">Aapurti - Portal</a>
+        <a href="#default" class="logo">
+            <img src="{%  static 'Aapurti_Logo.png' %}" class="main_logo">
+        </a>
         <div class="header-right">
             <a class="active" href="#home">Home</a>
             <!--<a href="#contact">Contact</a>-->
@@ -193,7 +195,7 @@
                             <!--<input type="text" class="form-control" id="Job Details" name="Job Details" placeholder="Job Details" >-->
 
                             <label for="floatingInput">Job Details</label>
-                            <select name="Job Details" id="Job Details" class="job-select">
+                            <select name="Job Details" id="Job Details" class="job-select" required>
                                 <option value="Select Job" disabled selected>Select Job</option>
                                 <option value="Python">Python</option>
                                 <option value="Java">Java</option>
@@ -206,26 +208,26 @@
                             <br>
                             <br>
                             <input type="text" class="form-control" id="Candidate Name" name="Candidate Name"
-                                placeholder="Candidate Name">
+                                placeholder="Candidate Name" required>
                             <label for="floatingInput">Gender<Address></Address></label>
                             <select name="Gender" id="Gender" class="job-select">
-                                <option value="Select Job" disabled selected>Select Gender</option>
+                                <option value="Select Job" disabled selected required>Select Gender</option>
                                 <option value="MALE">Male</option>
                                 <option value="FEMALE">Female</option>
                             </select>
                             <br>
                             <input type="text" class="form-control" id="PAN Card" name="PAN Card"
-                                placeholder="PAN Card">
+                                placeholder="PAN Card" required>
                             <label for="floatingInput">PAN Card<Address></Address></label>
                             <br>
                             <input type="text" class="form-control" id="Aadhar Card" name="Aadhar Card"
-                                placeholder="Aadhar Card">
+                                placeholder="Aadhar Card" required>
                             <label for="floatingInput">Aadhar Card<Address></Address></label>
                             <br>
                             <div class="inp-phone">
                                 <span id="inp-phone">+91</span>
                                 <input type="text" class="form-control" id="Phone Number" name="Phone Number"
-                                    placeholder="Phone Number" style="width: 94%;">
+                                    placeholder="Phone Number" style="width: 94%;" required>
                             </div>
                             <label for="floatingInput">Phone Number<Address></Address></label>
                             <br>

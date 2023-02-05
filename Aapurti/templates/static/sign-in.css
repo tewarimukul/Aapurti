@@ -603,6 +603,13 @@ body {
     background-repeat: no-repeat;
 }
 
+.main_logo {
+    height: auto;
+    width: 130px;
+    margin: -26px;
+    margin-left: -29px;
+  }
+
 .banner {
     opacity: 1;
     transition: opacity 1s;
