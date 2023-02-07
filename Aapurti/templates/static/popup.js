@@ -12,8 +12,8 @@ function closeNav() {
 }
 
 function openUser() {
-  document.getElementById("userSidenav").style.height = "370px";
-  document.getElementById("userSidenav").style.width = "320px";
+  document.getElementById("userSidenav").style.height = "269px";
+  document.getElementById("userSidenav").style.width = "237px";
   //document.getElementById("main-body").style.overflowY = "hidden";
 }
 
@@ -22,7 +22,6 @@ function closeUser() {
   document.getElementById("userSidenav").style.width = "0";
   document.getElementById("main-body").style.overflowY = "scroll";
 }
-
 
 document.getElementById('main-body').onclick = function(e) {
   var element = document.getElementById('mySidenav'),

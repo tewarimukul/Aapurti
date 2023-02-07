@@ -25,7 +25,7 @@ class JobDetails(models.Model):
 class Vendor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     isVendor = models.BooleanField(default=False)
-    birthday = models.DateField()
+    birthday = models.DateField(default=timezone.now)
     Gender = models.CharField(
         max_length=6,
         choices=[('MALE', 'MALE'),('FEMALE', 'FEMALE')]

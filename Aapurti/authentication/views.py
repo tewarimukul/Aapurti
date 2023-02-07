@@ -76,7 +76,9 @@ def signup(request):
         myuser.first_name = fname
         myuser.last_name = lname
 
-        # myvendor = Vendor()
+        vendor = Vendor(isVendor=True, user=myuser, isApproved=False)
+        
+        vendor.save()
         myuser.save()
 
         messages.success(request, 'Your Account has been created successfully')
@@ -186,9 +188,9 @@ def fbPost(request, name, success="False", resp="GET"):
         if api_req == "on" and api_project == "Facebook":
             access_page = ""
             access_group = ""
+            group = ""
             mypage = fb.GraphAPI(access_page)
             mygroup = fb.GraphAPI(access_group)
-            group= "1387524118665084"
             mypage.put_object("me", "feed", message=api_description)
             mygroup.put_object(group, "feed", message=api_description)
             messages.success(request, 'Open Demand is successfully posted on ' + api_project + ".")
@@ -342,9 +344,10 @@ def vendorstatus(request, name):
 
     data = {
         'users': users,
+        'vendors': vendors,
         'name': name,
         'fname': fstname.title(),
         'lname': lstname.title(),
         'username': usern,
         }
-    return HttpResponse(data)
+    return render(request, "authentication/vendorstatus.html", data)

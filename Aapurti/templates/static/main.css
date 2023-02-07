@@ -22,6 +22,7 @@ button {
 }
 
 table {
+  font-size: 14px !important;
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 102%;
@@ -42,7 +43,7 @@ th {
   padding: 8px;
   text-align: center;
   font-weight: bolder;
-  font-size: large;
+  font-size: 16px;
   border-bottom-width: 5px;
   border-bottom-style: groove;
 }
@@ -60,6 +61,7 @@ table tr:last-child td:last-child {
 }
 
 .social {
+  font-size: 14px !important;
   padding-right: 15px;
   padding-left: 15px;
 }
@@ -168,7 +170,7 @@ table tr:last-child td:last-child {
 
 .main_logo {
   height: auto;
-  width: 130px;
+  width: 110px;
   margin: -36px;
   margin-left: -29px;
 }
@@ -318,7 +320,7 @@ table tr:last-child td:last-child {
   /* margin: 1.75rem 44rem !important; */
   margin: auto !important;
   /* margin-top: 90px !important; */
-  top: 14%;
+  top: 4%;
 }
 
 @media (min-width: 576px) {
@@ -375,19 +377,20 @@ body {
   font-size: 30px;
   cursor: pointer;
   display: flex;
-  margin-top: 13px;
+  margin-top: 16px;
   margin-right: 18px;
   margin-left: 9px;
 }
 
 .site-logo {
   display: flex;
+  margin-top: 4px;
 }
 
 .header {
   overflow: hidden;
   background-color: #fff;
-  padding: 27px 20px 34px 10px;
+  padding: 18px 20px 25px 10px;
   box-shadow: -3px -20px 53px #000;
   display: flex;
   flex-direction: row;
@@ -399,7 +402,7 @@ body {
   text-align: center;
   padding: 12px;
   text-decoration: none;
-  font-size: 23px;
+  font-size: 18px;
   line-height: 25px;
   border-radius: 4px;
 }
@@ -430,7 +433,7 @@ body {
   justify-content: center;
   -webkit-box-align: center;
   position: relative;
-  margin-top: 13px;
+  margin-top: 11px;
 }
 
 /*
@@ -439,7 +442,7 @@ body {
   color: #fff;
 }*/
 .header-right a:hover {
-  font-size: 24px;
+  font-size: 21px;
   color: #a100ff;
   font-weight: bolder;
   transition: 0.5s;
@@ -449,7 +452,7 @@ body {
   position: absolute;
   content: '';
   height: 0.4rem;
-  bottom: -3.4rem;
+  bottom: -2.6rem;
   left: 0;
   width: 100%;
   background-color: #a100ff;
@@ -482,11 +485,11 @@ body {
   width: 1px;
   height: 55px;
   float: left;
-  margin-top: 11px;
+  margin-top: 6px;
 }
 
 #acc-logo {
-  height: 45px;
+  height: 35px;
   float: left;
   padding-bottom: 8.2px;
 }
@@ -565,7 +568,7 @@ select {
 
 table {
   width: 110%;
-  margin: 2px -73px;
+  margin: 2px -55px;
   table-layout: auto;
   color: #292929;
   background-color: #ffff;
@@ -638,6 +641,7 @@ i.fa-trash {
 /* Approval Flag */
 
 .app-True {
+  font-size: 14px !important;
   background: #cff6dd;
   color: #1fa750;
   position: relative;
@@ -658,6 +662,7 @@ i.fa-trash {
 }
 
 .app-False {
+  font-size: 14px !important;
   background: #fdf5dd;
   color: #cfa00c;
   position: relative;
@@ -685,11 +690,11 @@ h5 {
 .side-nav span:hover {
   background-color: #a100ff;
   color: #fff;
-  font-size: 25px !important;
+  font-size: 16px !important;
   font-weight: bolder;
   font-size: 30px;
   cursor: pointer;
-  padding: 10px 20px;
+  padding: 8px 14px;
   border-radius: 90px;
 }
 
@@ -711,7 +716,7 @@ h5 {
 .sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 20px;
   color: #818181;
   display: block;
   transition: 0.3s;
@@ -1163,7 +1168,7 @@ h5 {
 
 .image .banner {
   display: block;
-  height: 350px;
+  height: 240px;
   overflow: hidden;
 }
 
@@ -1222,9 +1227,9 @@ h5 {
 }
 
 .usersidenav a {
-  padding: 8px 8px 8px 32px;
+  padding: 0px 8px 3px 8px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 19px;
   color: #818181;
   display: block;
   transition: 0.3s;
@@ -1289,21 +1294,12 @@ h5 {
   background-color: #fff;
   transition: 0.5s;
   padding-top: 19px;
-  margin-right: 5.5vw;
-  margin-top: 3vh;
+  margin-right: 6.5vw;
+  margin-top: 6vh;
   border-radius: 20px;
   box-shadow: 1px 2px 58px -3px;
   transition: 0.3s;
   overflow: hidden;
-}
-
-.usersidenav a {
-  padding: 8px 8px 8px 8px;
-  text-decoration: none;
-  font-size: 24px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
 }
 
 .usersidenav a:hover {
@@ -1322,7 +1318,7 @@ h5 {
   vertical-align: middle;
   fill: currentColor;
   overflow: hidden;
-  height: 100%;
+  height: 80%;
   display: flex;
   margin-right: 14px;
   margin-top: 0px;
@@ -1346,7 +1342,7 @@ h5 {
 .username {
   display: flex;
   flex-direction: column;
-  font-size: 23px !important;
+  font-size: 19px !important;
   text-align: left;
 }
 
@@ -1355,12 +1351,12 @@ h5 {
   height: 1px;
   width: 90%;
   display: flex;
-  margin-top: 13px;
+  margin-top: 8px;
   margin-bottom: 7px;
 }
 
 .usern {
-  font-size: 20px;
+  font-size: 16px;
   color: gray;
 }
 

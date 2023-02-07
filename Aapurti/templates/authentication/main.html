@@ -61,21 +61,22 @@
     <input type="text" id="success_verify" name="success_verify" style="display: none;" value="/{{ name }}/{{ successful_submit }}/{{ resp }}">
     <div class="header">
         <div class="side-nav">
-            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+            <span style="font-size:25px;cursor:pointer" onclick="openNav()">&#9776;</span>
         </div>
         <div id="site-logo" class="site-logo" style="font-size: 16px;">
-            <a href="{% url 'home' %}" data-raofz="14" role="link" style="font-size: 16px;">
+            <a href="{% url 'main' name 'False' 'GET' %}" data-raofz="14" role="link" style="font-size: 16px;">
                 <img tabindex="-1" aria-label="Links to portal.accenture.com (opens new tab)"
                     src="https://in.accenture.com/careers/wp-content/themes/brandspace/images/Accenture-Logo-Purple.svg"
                     alt="Accenture Logo" id="acc-logo">
             </a>
         </div>
         <div class="logo-seperator"></div>
-        <a href="#default" class="logo">
+        <a href="{% url 'main' name 'False' 'GET' %}" class="logo">
             <img src="{%  static 'Aapurti_Logo.png' %}" class="main_logo">
         </a>
         <div class="header-right">
-            <a class="active" href="#home">Home</a>
+            <a class="active" href="{% url 'main' name 'False' 'GET' %}">Home</a>
+            <a class="active" href="{% url 'vendorstatus' name %}">Vendors</a>
             <!--<a href="#contact">Contact</a>-->
             <span type="button" class="user-icon" onclick="openUser()">
                 <svg class="svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -152,7 +153,7 @@
         <div id="mySidenav" class="sidenav">
             <div class="side-nav-logo">
                 <div class="side-nav-1">
-                    <a href="{% url 'home' %}" data-raofz="14" role="link" style="font-size: 16px;">
+                    <a href="{% url 'main' name 'False' 'GET' %}" data-raofz="14" role="link" style="font-size: 16px;">
                         <img tabindex="-1" aria-label="Links to portal.accenture.com (opens new tab)"
                             src="{% static 'Acc_Logo_White_Purple_RGB.png' %}" alt="Accenture Logo" id="acc-logo">
                     </a>
@@ -163,7 +164,7 @@
             </div>
 
             <a href="#" class="nav-content">New Demands</a>
-            <a href="#" class="nav-content">Vendors</a>
+            <a href="{% url 'vendorstatus' name %}" class="nav-content">Vendors</a>
             <a href="#" class="nav-content">Clients</a>
             <a href="#" class="nav-content">Contact</a>
         </div>
