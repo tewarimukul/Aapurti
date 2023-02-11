@@ -124,7 +124,7 @@
             </div>
         </div>
         <div class="container">
-            <h2>Open Demands</h2>
+            <h2 class="open_dem">Open Demands</h2>
         </div>
     </div>
     <!--<h3>Welcome to Aapurti</h3>
@@ -343,6 +343,16 @@
 
     <script src="{% static 'Social_post.js' %}"></script>
     <script src="{% static 'popup.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        var typingEffect = new Typed(".open_de",{
+            strings : ["Open Demands", "Aapurti"],
+            loop: true,
+            typeSpeed: 100,
+            backSpeed: 80,
+            backDelay: 1500
+        })
+    </script>
 </body>
 
 </html>

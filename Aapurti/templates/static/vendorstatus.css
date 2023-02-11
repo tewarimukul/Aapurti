@@ -1121,6 +1121,7 @@ i.fa-trash {
     font-weight: 700;
     line-height: 1;
     font-family: inherit;
+    letter-spacing: 3px;
 }
 
 .page-hero h2:hover {
