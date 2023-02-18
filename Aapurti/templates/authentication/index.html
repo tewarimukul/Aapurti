@@ -78,8 +78,7 @@
         </div>
       </div>
       <div class="container">
-        <h1>Aapurti</h1>
-        <h2>Bring on someone Exceptional</h2>
+        <h1 class="open_head"></h1>
       </div>
     </div>
 
@@ -468,6 +467,16 @@
     </div>
   </main>
   <script src="{% static 'index-hover.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        var typingEffect = new Typed(".open_head",{
+            strings : ["Aapurti", "Bring on someone Exceptional"],
+            loop: true,
+            typeSpeed: 100,
+            backSpeed: 80,
+            backDelay: 1500
+        })
+    </script>
 </body>
 
 </html>

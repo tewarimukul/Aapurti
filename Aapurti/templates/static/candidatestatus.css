@@ -122,8 +122,24 @@ td {
     margin-top: 10px;
 }
 
+#dash2 {
+    color: white;
+    font-size: 15px;
+    text-align: left;
+    margin-left: 4px;
+    margin-top: 10px;
+}
+
+#dash2 a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
 #job-desc {
     margin-bottom: 40px;
+    font-size: 15px;
+    color: dimgray;
 }
 
 .card-sep {
@@ -226,26 +242,26 @@ td {
     display: flex;
     align-content: center;
     align-items: center;
-  
-  }
 
-  .search input {
+}
+
+.search input {
     border-style: solid;
     border-radius: 20px;
     border-width: 1px;
-  }
+}
 
-  .search>input {
+.search>input {
     padding: 8px;
     border: none;
     outline: navajowhite;
     margin: 0 0 0 20px;
     background: white;
-  }
+}
 
-  .main_logo {
+.main_logo {
     height: auto;
     width: 130px;
     margin: -26px;
     margin-left: -29px;
-  }
+}

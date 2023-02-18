@@ -442,7 +442,7 @@ body {
   color: #fff;
 }*/
 .header-right a:hover {
-  font-size: 21px;
+  font-size: 19px;
   color: #a100ff;
   font-weight: bolder;
   transition: 0.5s;
@@ -652,7 +652,7 @@ i.fa-trash {
 
 .app-True:after {
   position: absolute;
-  top: 15px;
+  top: 13px;
   left: 13px;
   width: 10px;
   height: 10px;
@@ -678,7 +678,7 @@ h5 {
 .app-False:after {
   background: #f2be1d;
   position: absolute;
-  top: 15px;
+  top: 13px;
   left: 13px;
   width: 10px;
   height: 10px;

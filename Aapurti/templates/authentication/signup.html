@@ -51,9 +51,17 @@
 
   <main class="form-signin w-100 m-auto">
     <div class="header">
-      <a href="{% url 'home' %}" class="logo">
-        <img src="{%  static 'Aapurti_Logo.png' %}" class="main_logo">
-      </a>
+      <div id="site-logo" class="site-logo" style="font-size: 16px;">
+        <a href="{% url 'home' %}" data-raofz="14" role="link" style="font-size: 16px;">
+          <img tabindex="-1" aria-label="Links to portal.accenture.com (opens new tab)"
+            src="https://in.accenture.com/careers/wp-content/themes/brandspace/images/Accenture-Logo-Purple.svg"
+            alt="Accenture Logo" id="acc-logo">
+        </a>
+        <div class="logo-seperator"></div>
+        <a href="{% url 'home' %}" class="logo">
+          <img src="{%  static 'Aapurti_Logo.png' %}" class="main_logo">
+        </a>
+      </div>
       <div class="header-right">
         <a class="active" href="#home">Home</a>
         <a href="#contact">Contact</a>

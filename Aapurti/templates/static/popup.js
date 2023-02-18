@@ -2,7 +2,7 @@
 //document.getElementById('main-body').addEventListener('click', closeUser);
 
 function openNav() {
-  document.getElementById("mySidenav").style.width = "265px";
+  document.getElementById("mySidenav").style.width = "220px";
   //document.getElementById("main-body").style.marginLeft = "250px";
 }
 

@@ -77,7 +77,7 @@ def signup(request):
         myuser.last_name = lname
 
         vendor = Vendor(isVendor=True, user=myuser, isApproved=False)
-        
+
         vendor.save()
         myuser.save()
 
@@ -91,20 +91,20 @@ def signup(request):
 def main(request, name, success="False", resp="GET"):
 
     JobDetailsData = JobDetails.objects.all()
-    #success, sv = False, False
-    
-    #success = name.split("+")[3]
+    # success, sv = False, False
+
+    # success = name.split("+")[3]
 #    next_name = name.split("+")[0] + "+" + name.split("+")[1] + "+" + name.split("+")[2] + "+"
 
     fstname = decrypt_name(name.split("+")[0])
     lstname = decrypt_name(name.split("+")[1])
     usern = decrypt_name(name.split("+")[2])
-    #resp = request.method
+    # resp = request.method
     if resp == "GET":
         success = "False"
     else:
         success = "True"
-    #print(success + " --- " + resp)
+    # print(success + " --- " + resp)
     data = {
         'resp': resp,
         'successful_submit': success,
@@ -139,7 +139,7 @@ def signin(request):
         fname = user.first_name
         lname = user.last_name
         usern = user.username
-        
+
         fname_enc = encrypt_name(fname)
         lname_enc = encrypt_name(lname)
         usern = encrypt_name(usern)
@@ -171,50 +171,56 @@ def signout(request):
 
 
 def fbPost(request, name, success="False", resp="GET"):
+    try:
+        disable_warnings(InsecureRequestWarning)
+        if request.method == "POST":
+            api_req = request.POST['Approval']
+            api_project = request.POST['social']
+            description_tmp = request.POST['Description']
+            hashTag = request.POST['hash_tag']
+            # sv = request.POST['success_verify']
+            success = "True"
+            resp = request.method
+            # name = name + "+" + str(success)
 
-    disable_warnings(InsecureRequestWarning)
-    if request.method == "POST":
-        api_req = request.POST['Approval']
-        api_project = request.POST['social']
-        description_tmp = request.POST['Description']
-        hashTag = request.POST['hash_tag']
-        #sv = request.POST['success_verify']
-        success = "True"
-        resp = request.method
-        #name = name + "+" + str(success)
+            api_description = description_tmp + "\n\n" + \
+                "Click Here to Sign Up : http://localhost:8080/" + "\n\n" + hashTag + "\n\n"
 
-        api_description = description_tmp + "\n\n" + "Click Here to Sign Up : http://localhost:8080/" + "\n\n" + hashTag + "\n\n"
+            if api_req == "on" and api_project == "Facebook":
+                access_page = ""
+                access_group = ""
+                group = ""
+                mypage = fb.GraphAPI(access_page)
+                mygroup = fb.GraphAPI(access_group)
+                mypage.put_object("me", "feed", message=api_description)
+                mygroup.put_object(group, "feed", message=api_description)
+                messages.success(
+                    request, 'Open Demand is successfully posted on ' + api_project + ".")
+                return redirect('main', name=name, success=success, resp=resp)
+                # return render(request, "main.html" , {'name': name, 'successful_submit': True})
 
-        if api_req == "on" and api_project == "Facebook":
-            access_page = ""
-            access_group = ""
-            group = ""
-            mypage = fb.GraphAPI(access_page)
-            mygroup = fb.GraphAPI(access_group)
-            mypage.put_object("me", "feed", message=api_description)
-            mygroup.put_object(group, "feed", message=api_description)
-            messages.success(request, 'Open Demand is successfully posted on ' + api_project + ".")
-            return redirect('main', name=name, success=success, resp=resp)
-            #return render(request, "main.html" , {'name': name, 'successful_submit': True})
+            # return HttpResponse(api_description)
+            # if api_req == "on" and api_project == "Facebook":
+            # access_token = "EAANS8tZCXXewBAFv4z2mBHwysqzbFwWRE34sYNhA3PnayoVDgRk482AgrGfa67K8XtsN3hZBT9cQ0BX1Ltdu0wFXZC1DY4ZArslJTUZCMOZBm3EtQKCBPZAxTzdZATE4DT8CmCq0RSbpTPMNoJoEFcOhEGzqX6TLzLh2587D1NKRFE3QmDKE38UA"
+            # myobject = fb.GraphAPI(access_token)
+            # myobject.put_object("me", "feed", message=api_description)
+            # messages.success(request, 'Post Successful !!!')
+            # return redirect('main', name=name)
+                # return render(request, "authentication/fb-post1.html")
 
-        # return HttpResponse(api_description)
-        #if api_req == "on" and api_project == "Facebook":
-           # access_token = "EAANS8tZCXXewBAFv4z2mBHwysqzbFwWRE34sYNhA3PnayoVDgRk482AgrGfa67K8XtsN3hZBT9cQ0BX1Ltdu0wFXZC1DY4ZArslJTUZCMOZBm3EtQKCBPZAxTzdZATE4DT8CmCq0RSbpTPMNoJoEFcOhEGzqX6TLzLh2587D1NKRFE3QmDKE38UA"
-           # myobject = fb.GraphAPI(access_token)
-           # myobject.put_object("me", "feed", message=api_description)
-           #messages.success(request, 'Post Successful !!!')
-           # return redirect('main', name=name)
-            # return render(request, "authentication/fb-post1.html")
+            else:
+                messages.error(request, 'Please select a valid Posting page [Facebook].')
+                return redirect('main', name=name, success=success, resp=resp)
 
         else:
-            messages.error(request, 'Please select a valid Posting page [Facebook].')
-            return redirect('main', name=name, success=success, resp=resp)
+            return redirect('home')
+            # return HttpResponse("Kuch Nahi Hua  " + str(request.method))
 
-    else:
-        return redirect('home')
-        # return HttpResponse("Kuch Nahi Hua  " + str(request.method))
+            # return render(request,"authentication/index.html")
+    except:
+        messages.error(request, 'Internal Error while Posting the demands. Please try again later.')
+        return redirect('main', name=name, success=success, resp=resp)
 
-        # return render(request,"authentication/index.html")
 
 
 # PageId=101328056193847
@@ -235,7 +241,7 @@ def vendorsignin(request):
             fname = user.first_name
             lname = user.last_name
             usern = user.username
-            
+
             for vendor in VendorsData:
                 if str(vendor.user) == str(usern):
                     isApprove = vendor.isApproved
@@ -247,7 +253,8 @@ def vendorsignin(request):
             name = fname_enc + "+" + lname_enc + "+" + usern
 
             if isApprove is False:
-                messages.warning(request, 'Your Account is not activated yet. Please try again after sometime. You will get a notification once your account is active.')
+                messages.warning(
+                    request, 'Your Account is not activated yet. Please try again after sometime. You will get a notification once your account is active.')
                 return redirect('/vendorsignin')
             else:
                 return redirect('/vendor/' + str(name), name=name)
@@ -306,7 +313,7 @@ def candidate(request):
             'username': usern,
         }
 
-        candidate = candidatedetails(jobid=jobdetails,Gender=gender, candidatename=candidatename,
+        candidate = candidatedetails(jobid=jobdetails, Gender=gender, candidatename=candidatename,
                                      pancard=pancard, phone=phonenumber, user=usern, candEmail=email, aadhar=aadhar)
         candidate.save()
 
@@ -327,8 +334,9 @@ def candidatestatus(request, name):
         'lname': lstname.title(),
         'username': usern,
         'candidatedetails': abc
-        }
+    }
     return render(request, "authentication/candidatestatus.html", data)
+
 
 def vendorstatus(request, name):
     fstname = decrypt_name(name.split("+")[0])
@@ -337,7 +345,6 @@ def vendorstatus(request, name):
     User = get_user_model()
     users = User.objects.all()
     vendors = Vendor.objects.all()
-    
 
     for vendor in vendors:
         print(str(vendor.user) + ":" + str(vendor.isVendor))
@@ -349,5 +356,5 @@ def vendorstatus(request, name):
         'fname': fstname.title(),
         'lname': lstname.title(),
         'username': usern,
-        }
+    }
     return render(request, "authentication/vendorstatus.html", data)

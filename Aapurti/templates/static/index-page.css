@@ -712,7 +712,7 @@ span {
     font-weight: 700;
     line-height: 1;
     font-family: inherit;
-    margin-bottom: 30px;
+    letter-spacing: 3px;
 }
 
 .page-hero h2,
@@ -771,6 +771,14 @@ span {
     top: 50%;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.container span {
+    font-size: 70px;
+    color: lightblue;
+    font-weight: 700;
 }
 
 .page-hero,
@@ -1352,7 +1360,7 @@ span {
     width: 130px;
     margin: -26px;
     margin-left: -29px;
-  }
+}
 
 .button--mimas:hover::before {
     transform: translate3d(100%, 0, 0);

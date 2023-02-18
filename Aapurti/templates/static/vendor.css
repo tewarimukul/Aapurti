@@ -124,7 +124,8 @@ table tr:last-child td:last-child {
   border-width: 1px;
 }
 
-.mo-btn:hover, .card-sep a:hover {
+.mo-btn:hover,
+.card-sep a:hover {
   background-color: #fff !important;
   border-color: #a100ff !important;
   color: #a100ff !important;
@@ -299,12 +300,13 @@ body {
 
 .site-logo {
   display: flex;
+  padding-top: 7px;
 }
 
 .header {
   overflow: hidden;
   background-color: #fff;
-  padding: 20px 20px 36px 10px;
+  padding: 10px 20px 25px 10px;
   box-shadow: -3px -20px 53px #000;
   display: flex;
   flex-direction: row;
@@ -316,7 +318,7 @@ body {
   text-align: center;
   padding: 12px;
   text-decoration: none;
-  font-size: 23px;
+  font-size: 19px;
   line-height: 25px;
   border-radius: 4px;
 }
@@ -333,7 +335,8 @@ body {
 }
 */
 
-.card-sep a, .show_prof{
+.card-sep a,
+.show_prof {
   text-decoration: none;
   color: white;
 }
@@ -482,7 +485,7 @@ body {
 }
 
 #dash {
-  font-size: 35px;
+  font-size: 32px;
 }
 
 .container {
@@ -520,7 +523,7 @@ body {
   font-weight: 700;
   line-height: 1;
   font-family: inherit;
-  margin-top: 40px;
+  margin-top: 21px;
 }
 
 /*
@@ -571,6 +574,8 @@ body {
   top: 40%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
 }
 
 .page-hero,
@@ -579,7 +584,7 @@ body {
   height: auto;
   position: relative;
   box-sizing: border-box;
-  margin-top: 30px;
+  margin-top: 16px;
 }
 
 .image .banner {
@@ -587,7 +592,7 @@ body {
   width: 100%;
   height: auto;
   overflow: hidden;
-  height: 450px;
+  height: 310px;
 }
 
 .dash {
@@ -621,7 +626,7 @@ body {
   color: #fff;
 }*/
 .header-right a:hover {
-  font-size: 24px;
+  font-size: 20px;
   color: #a100ff;
   font-weight: bolder;
   transition: 0.5s;
@@ -631,8 +636,7 @@ body {
   position: absolute;
   content: '';
   height: 0.4rem;
-  bottom: -3.2rem;
-  ;
+  bottom: -2.6rem;
   left: 0;
   width: 100%;
   background-color: #a100ff;
@@ -669,7 +673,7 @@ body {
 }
 
 #acc-logo {
-  height: 45px;
+  height: 37px;
   float: left;
   padding-bottom: 8.2px;
 }
@@ -868,11 +872,11 @@ h5 {
 .side-nav span:hover {
   background-color: #a100ff;
   color: #fff;
-  font-size: 25px !important;
+  font-size: 15px !important;
   font-weight: bolder;
   font-size: 30px;
   cursor: pointer;
-  padding: 10px 20px;
+  padding: 8px 12px;
   border-radius: 90px;
 }
 
@@ -911,10 +915,14 @@ input::file-selector-button:hover {
 .sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 20px;
   color: #818181;
   display: block;
   transition: 0.3s;
+}
+
+#sideCont {
+  padding-right: 36px;
 }
 
 .sidenav a:hover {
@@ -966,10 +974,10 @@ input::file-selector-button:hover {
   vertical-align: middle;
   fill: currentColor;
   overflow: hidden;
-  height: 87%;
+  height: 80%;
   display: flex;
   margin-right: 59px;
-  margin-top: 6px;
+  margin-top: 10px;
   margin-left: 2px;
   vertical-align: middle;
   fill: currentColor;
@@ -981,10 +989,10 @@ input::file-selector-button:hover {
   vertical-align: middle;
   fill: currentColor;
   overflow: hidden;
-  height: 87%;
+  height: 80%;
   display: flex;
   margin-right: 59px;
-  margin-top: 6px;
+  margin-top: 10px;
   margin-left: 2px;
   vertical-align: middle;
   fill: #fff;
@@ -1091,6 +1099,7 @@ input::file-selector-button:hover {
 .user-side-nav-logo {
   flex-direction: row;
   display: flex;
+  margin-top: -10px;
 }
 
 .user-side-nav-logo div {
@@ -1110,6 +1119,10 @@ input::file-selector-button:hover {
   border-radius: 90px;
 }
 
+.side-nav-1 img {
+  margin-left: 10px;
+}
+
 .usersidenav {
   height: 0;
   width: 0;
@@ -1119,9 +1132,9 @@ input::file-selector-button:hover {
   right: 0;
   background-color: #fff;
   transition: 0.5s;
-  padding-top: 19px;
-  margin-right: 5.5vw;
-  margin-top: 3vh;
+  padding-top: 23px;
+  margin-right: 7vw;
+  margin-top: 5vh;
   border-radius: 20px;
   box-shadow: 1px 2px 58px -3px;
   transition: 0.3s;
@@ -1129,9 +1142,9 @@ input::file-selector-button:hover {
 }
 
 .usersidenav a {
-  padding: 8px 8px 8px 8px;
+  padding: 5px 8px 5px 8px;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 20px;
   color: #818181;
   display: block;
   transition: 0.3s;
@@ -1153,10 +1166,10 @@ input::file-selector-button:hover {
   vertical-align: middle;
   fill: currentColor;
   overflow: hidden;
-  height: 100%;
+  height: 85%;
   display: flex;
   margin-right: 14px;
-  margin-top: 0px;
+  margin-top: 3px;
   margin-left: -5vw;
   vertical-align: middle;
   fill: #fff;
@@ -1177,7 +1190,7 @@ input::file-selector-button:hover {
 .username {
   display: flex;
   flex-direction: column;
-  font-size: 23px !important;
+  font-size: 20px !important;
   text-align: left;
 }
 
@@ -1186,13 +1199,14 @@ input::file-selector-button:hover {
   height: 1px;
   width: 90%;
   display: flex;
-  margin-top: 13px;
-  margin-bottom: 7px;
+  margin-top: 3px;
+  margin-bottom: 2px;
 }
 
 .usern {
-  font-size: 20px;
+  font-size: 15px;
   color: gray;
+  margin-top: -1px;
 }
 
 /********/
@@ -1392,7 +1406,7 @@ input {
 
 .main_logo {
   height: auto;
-  width: 130px;
+  width: 115px;
   margin: -26px;
   margin-left: -29px;
 }
