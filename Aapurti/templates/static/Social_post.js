@@ -6,9 +6,9 @@ var emptyBox = [];
 var index = 1;
 var itemPerPage = 8;
 
-for (let i = 0; i < tr.length; i++) { 
+for (let i = 0; i < tr.length; i++) {
 	//var trow = document.getElementsByTagName('')
-	emptyBox.push(tr[i]); 
+	emptyBox.push(tr[i]);
 }
 
 itemShow.onchange = giveTrPerPage;
@@ -135,8 +135,38 @@ function searchJob() {
 //Post Confirmation
 
 function openModal() {
-	$('#myForm').on('submit', function(e){
+	$('#myForm').on('submit', function (e) {
 		$('#modal_success').modal('show');
 		e.preventDefault();
-	  });
+	});
+}
+var val = "";
+
+function setSocialMedia(Media, JobEle) {
+	var isFill;
+	const Social_Medias = ["Facebook", "Instagram", "Twitter", "LinkedIn", "null"];
+	var Social_dict = {
+		Facebook: "#1877f2",
+		Instagram: "#d62976",
+		Twitter: "#00acee",
+		LinkedIn: "#0072b1",
+	}
+	//console.log("Job: " + JobEle)
+	document.getElementById("social_" + JobEle).value = Media;
+	//val = document.getElementById("social_" + JobEle).value;
+	//console.log("svg_" + JobEle + "_" + Media + ":" + Social_Medias.length);
+
+	for (var i = 0; i < Social_Medias.length; i++) {
+		isFill = document.getElementById("svg_" + JobEle + "_" + Media).style.fill;
+		if (Media === Social_Medias[i] && isFill === "") {
+			//console.log("Job: " + JobEle + " - isFill: " + isFill)
+			document.getElementById("svg_" + JobEle + "_" + Media).style.fill = Social_dict[Social_Medias[i]];
+		}
+		else {
+			document.getElementById("svg_" + JobEle + "_" + Social_Medias[i]).style.fill = "";
+		}
+	}
+	if (isFill === "") {
+		document.getElementById("social_" + JobEle).value = "";
+	}
 }

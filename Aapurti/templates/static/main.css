@@ -519,7 +519,7 @@ main {
   widows: 70%;
   height: auto;
   padding: 20px;
-  margin: 50px auto;
+  margin: 5px auto;
   background: whitesmoke;
   font-family: system-ui;
   color: #666;
@@ -543,6 +543,11 @@ main {
 
 }
 
+.items-controller h5,
+.search h5 {
+  font-size: 15px !important;
+}
+
 select {
   padding: 2px;
   margin: -5px 10px;
@@ -553,11 +558,21 @@ select {
 }
 
 .search>input {
-  padding: 8px;
+  padding: 5px;
   border: none;
   outline: navajowhite;
   margin: 0 0 0 20px;
   background: white;
+}
+
+#search::placeholder {
+  margin-left: 20px;
+  font-size: 15px !important;
+  top:10% !important;
+}
+
+.insta_color {
+  width: 32px !important;
 }
 
 .field {
@@ -696,6 +711,123 @@ h5 {
   cursor: pointer;
   padding: 8px 14px;
   border-radius: 90px;
+}
+
+.details {
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: center;
+  flex-wrap: wrap;
+  /*margin-left: 120px;*/
+  margin-right: auto;
+}
+
+.card {
+  margin: 10px;
+  box-shadow: 0px 0px 5px -1px grey;
+  border-radius: 5px;
+}
+
+.mgmt-loc {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.mgmt {
+  /*margin-right: 75px;*/
+  flex: none;
+}
+
+.loc {
+  text-align: end !important;
+}
+
+.mgmt-stat {
+  font-size:14px !important;
+}
+
+.card:hover {
+  width: 31.2rem !important;
+  box-shadow: 0px 0px 5px -1px #a100ff;
+  border-radius: 10px;
+  border-color: #000;
+}
+
+.card-title {
+  font-size: 17px !important;
+  font-weight: bolder;
+}
+
+.card-sep {
+  border-width: 0.1rem;
+  border-style: solid;
+  border-color: #a100ff;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  opacity: 0.3;
+  border-radius: 20px;
+}
+
+.social-media {
+  display: flex;
+  flex-direction: row;
+  margin-top: -9px;
+  margin-bottom: -15px;
+}
+
+.social-media svg {
+  margin-left:5px;
+  margin-right: 5px;
+  width: 24px;
+  cursor: pointer;
+  transition: 0.001s;
+}
+
+.card_text_head {
+  font-weight: bolder;
+  color: gray;
+  font-size: 15px !important;
+}
+
+.pri-skill {
+  color: #a100ff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.pri-skill-head {
+  margin-bottom: -3px;
+  font-size: 12px !important;
+  color: #aba7a7;
+}
+
+.proj {
+  letter-spacing: 1px;
+}
+
+.app-stat {
+  text-align: left;
+  margin-top: 5px;
+}
+
+.card_text {
+  font-size: 17px;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.card_t {
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+
+.card-btn {
+  margin-top: 10px;
+  /* margin-bottom: 0px; */
+  cursor: pointer;
 }
 
 /* SIDENAV */
